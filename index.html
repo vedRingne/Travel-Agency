@@ -138,14 +138,13 @@
       padding: 0;
     }
 
-    html, body {
-      overflow-x: clip; /* clip is stronger than hidden and doesn't break position:fixed on iOS */
-    }
-
     html {
       scroll-behavior: smooth;
       font-size: 16px;
       color-scheme: dark;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
     }
 
     body {
@@ -154,11 +153,21 @@
       color: var(--text-white);
       line-height: 1.6;
       position: relative;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
       background-image: 
         radial-gradient(circle at 50% 0%, rgba(244, 169, 59, 0.08) 0%, transparent 60%),
         radial-gradient(circle at 100% 50%, rgba(28, 46, 82, 0.3) 0%, transparent 50%),
         radial-gradient(circle at 0% 80%, rgba(18, 33, 61, 0.4) 0%, transparent 60%);
       background-attachment: fixed;
+    }
+
+    .site-wrapper {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      position: relative;
     }
 
     /* Prevent any element from ever causing horizontal scroll */
@@ -534,7 +543,7 @@
     .mobile-drawer {
       position: fixed;
       top: 0;
-      right: -110%;
+      right: 0;
       width: 85%;
       max-width: 360px;
       height: 100vh;
@@ -545,13 +554,18 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateX(105%);
+      visibility: hidden;
+      pointer-events: none;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
       box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
       overflow-y: auto;
     }
 
     .mobile-drawer.open {
-      right: 0;
+      transform: translateX(0);
+      visibility: visible;
+      pointer-events: auto;
     }
 
     .mobile-drawer-overlay {
@@ -567,12 +581,14 @@
       z-index: 1999;
       opacity: 0;
       visibility: hidden;
-      transition: all 0.3s ease;
+      pointer-events: none;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
     .mobile-drawer-overlay.active {
       opacity: 1;
       visibility: visible;
+      pointer-events: auto;
     }
 
     .drawer-header {
@@ -682,6 +698,8 @@
       margin-bottom: 1.5rem;
       box-shadow: 0 0 20px rgba(244, 169, 59, 0.15);
       animation: pulseGlow 3s infinite ease-in-out;
+      max-width: 100%;
+      word-break: break-word;
     }
 
     @keyframes pulseGlow {
@@ -691,13 +709,15 @@
 
     .hero-heading {
       font-family: var(--font-display);
-      font-size: clamp(2.8rem, 5.2vw, 4.4rem);
+      font-size: clamp(2.2rem, 5vw, 4.4rem);
       font-weight: 900;
-      line-height: 1.05;
+      line-height: 1.08;
       text-transform: uppercase;
       letter-spacing: 0.03em;
       color: var(--text-white);
       margin-bottom: 1.2rem;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
 
     .hero-heading .amber-glow {
@@ -2644,6 +2664,14 @@
         font-size: 0.95rem;
         gap: 0.4rem;
       }
+      .hero-tagline-badge {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.8rem;
+        letter-spacing: 0.03em;
+        white-space: normal;
+        text-align: center;
+        max-width: 100%;
+      }
       .hero-section {
         padding: 2rem 0 3rem;
       }
@@ -2759,8 +2787,8 @@
         font-size: 1.15rem;
       }
       .hero-heading {
-        font-size: 2.1rem;
-        line-height: 1.1;
+        font-size: 1.85rem !important;
+        line-height: 1.12 !important;
       }
       .hero-lead {
         font-size: 0.92rem;
@@ -2841,7 +2869,8 @@
         font-size: 1.1rem;
       }
       .hero-heading {
-        font-size: 1.85rem;
+        font-size: 1.6rem !important;
+        line-height: 1.15 !important;
       }
       .tariff-m-header {
         flex-direction: column;
@@ -2857,7 +2886,7 @@
        GLOBAL MOBILE HORIZONTAL SCROLL PREVENTION
        ========================================================================== */
 
-    /* All sections must clip their own overflowing children */
+    /* All sections and wrappers must clip their own overflowing children */
     section,
     .top-bar,
     .site-header,
@@ -2869,7 +2898,8 @@
     .booking-section,
     .about-section,
     .contact-section,
-    footer {
+    footer,
+    .site-wrapper {
       max-width: 100%;
       overflow-x: clip;
     }
@@ -2926,6 +2956,7 @@
   </style>
 </head>
 <body>
+  <div class="site-wrapper">
 
   <!-- 1. TOP BAR -->
   <div class="top-bar">
@@ -4151,6 +4182,7 @@
       </div>
     </div>
   </footer>
+  </div><!-- end site-wrapper -->
 
   <!-- 12. FULLSCREEN IMAGE LIGHTBOX MODAL -->
   <div class="lightbox-modal" id="fleet-lightbox" onclick="closeLightbox(event)">
