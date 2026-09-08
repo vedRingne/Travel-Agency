@@ -142,6 +142,9 @@
       scroll-behavior: smooth;
       font-size: 16px;
       color-scheme: dark;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     body {
@@ -149,6 +152,8 @@
       background-color: var(--navy-950);
       color: var(--text-white);
       line-height: 1.6;
+      width: 100%;
+      max-width: 100%;
       overflow-x: hidden;
       position: relative;
       background-image: 
@@ -549,8 +554,10 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
       background: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(4px);
       z-index: 1999;
@@ -3785,7 +3792,7 @@
 
             <!-- Journey Date -->
             <div class="form-group">
-              <label class="form-label" for="book-date">Travel Date <span>*</span></label>
+              <label class="form-label" for="book-date">Travel Date (DD/MM/YYYY) <span>*</span></label>
               <div class="input-icon-wrap">
                 <i class="fa-solid fa-calendar-day"></i>
                 <input type="date" id="book-date" class="form-control" required />
@@ -4454,7 +4461,14 @@
       const selectedAc = document.querySelector('input[name="ac-choice"]:checked')?.value || 'AC';
       const pickup = pickupInput.value.trim();
       const drop = dropInput.value.trim();
-      const date = dateInput.value;
+      const rawDate = dateInput.value;
+      let formattedDate = rawDate;
+      if (rawDate) {
+        const parts = rawDate.split('-');
+        if (parts.length === 3) {
+          formattedDate = `${parts[2]}/${parts[1]}/${parts[0]}`; // DD/MM/YYYY format
+        }
+      }
       const time = timeInput.value;
       const notes = document.getElementById('book-notes').value.trim();
 
@@ -4468,7 +4482,7 @@
       waMessage += `🚗 *Vehicle:* ${selectedVehicle} (${selectedAc})\n`;
       waMessage += `📍 *Pickup Location:* ${pickup}\n`;
       waMessage += `🎯 *Drop Location:* ${drop}\n`;
-      waMessage += `📅 *Travel Date:* ${date}\n`;
+      waMessage += `📅 *Travel Date (DD/MM/YYYY):* ${formattedDate}\n`;
       waMessage += `⏰ *Pickup Time:* ${time}\n`;
       if (notes) {
         waMessage += `📝 *Notes/Requests:* ${notes}\n`;
