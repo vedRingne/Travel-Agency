@@ -501,8 +501,8 @@
     /* Mobile Hamburger Menu Toggle */
     .mobile-toggle {
       display: none;
-      background: transparent;
-      border: 1px solid rgba(244, 169, 59, 0.4);
+      background: rgba(18, 33, 61, 0.85);
+      border: 1px solid var(--amber-500);
       color: var(--amber-400);
       font-size: 1.3rem;
       width: 44px;
@@ -511,6 +511,14 @@
       cursor: pointer;
       align-items: center;
       justify-content: center;
+      transition: var(--transition-smooth);
+      box-shadow: 0 0 12px rgba(244, 169, 59, 0.2);
+    }
+
+    .mobile-toggle:hover,
+    .mobile-toggle:active {
+      background: var(--amber-500);
+      color: var(--navy-950);
     }
 
     /* Mobile Drawer */
@@ -2329,8 +2337,247 @@
     }
 
     /* ==========================================================================
-       13. RESPONSIVE BREAKPOINTS (Mobile < 860px)
+       13. MOBILE SPECIFIC COMPONENTS & ADVANCED RESPONSIVE SYSTEM
        ========================================================================== */
+    /* Mobile Cards Tariff View */
+    .signage-mobile-cards {
+      display: none;
+      flex-direction: column;
+      gap: 1.2rem;
+      padding: 0.5rem 0;
+    }
+
+    .tariff-mobile-card {
+      background: linear-gradient(165deg, var(--navy-800) 0%, var(--navy-900) 100%);
+      border: 1px solid rgba(244, 169, 59, 0.3);
+      border-radius: 14px;
+      padding: 1.1rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .tariff-m-header {
+      display: flex;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .tariff-m-thumb {
+      width: 100px;
+      height: 72px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(244, 169, 59, 0.4);
+      position: relative;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .tariff-m-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .tariff-m-badge {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      background: rgba(0, 0, 0, 0.75);
+      color: var(--amber-400);
+      font-size: 0.6rem;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+
+    .tariff-m-title-box {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .tariff-m-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-white);
+      text-transform: uppercase;
+      line-height: 1.15;
+      margin-bottom: 0.2rem;
+    }
+
+    .tariff-m-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: block;
+      line-height: 1.3;
+      margin-bottom: 0.4rem;
+    }
+
+    .tariff-m-specs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tariff-m-specs span {
+      font-size: 0.75rem;
+      color: var(--cream-100);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+    }
+
+    .tariff-m-specs span i {
+      color: var(--amber-500);
+      font-size: 0.7rem;
+    }
+
+    .tariff-m-rates {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+
+    .tariff-rate-chip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .tariff-rate-chip.nonac {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+
+    .tariff-rate-chip.ac {
+      background: rgba(244, 169, 59, 0.12);
+      border: 1px solid rgba(244, 169, 59, 0.35);
+    }
+
+    .tariff-rate-chip .rate-type {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.15rem;
+    }
+
+    .tariff-rate-chip.nonac .rate-val {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #34D399;
+      line-height: 1;
+    }
+
+    .tariff-rate-chip.ac .rate-val {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--amber-400);
+      line-height: 1;
+    }
+
+    .tariff-rate-chip .unit {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-weight: 500;
+    }
+
+    .tariff-m-btn {
+      width: 100%;
+      padding: 0.65rem 1rem;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    /* Mobile Sticky Bottom Action Bar */
+    .mobile-bottom-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(8, 13, 26, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(244, 169, 59, 0.35);
+      z-index: 1200;
+      padding: 0.5rem 0.75rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
+      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.6);
+      justify-content: space-around;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mobile-bar-btn {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      padding: 0.5rem 0.4rem;
+      border-radius: 8px;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .mobile-bar-btn i {
+      font-size: 1.25rem;
+    }
+
+    .mobile-bar-call {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #34D399;
+    }
+
+    .mobile-bar-call:active {
+      background: #10B981;
+      color: var(--navy-950);
+    }
+
+    .mobile-bar-wa {
+      background: rgba(37, 211, 102, 0.18);
+      border: 1px solid rgba(37, 211, 102, 0.45);
+      color: #25D366;
+    }
+
+    .mobile-bar-wa:active {
+      background: #25D366;
+      color: #FFF;
+    }
+
+    .mobile-bar-book {
+      background: linear-gradient(135deg, var(--amber-500) 0%, var(--amber-600) 100%);
+      border: 1px solid var(--amber-400);
+      color: var(--navy-950);
+      box-shadow: 0 2px 10px rgba(244, 169, 59, 0.35);
+    }
+
+    .mobile-bar-book:active {
+      background: var(--amber-400);
+    }
+
+    /* Breakpoint 1024px */
     @media (max-width: 1024px) {
       .hero-grid {
         grid-template-columns: 1fr;
@@ -2360,18 +2607,31 @@
       }
     }
 
+    /* Breakpoint 860px */
     @media (max-width: 860px) {
       .nav-menu {
-        display: none;
+        display: none !important;
       }
       .mobile-toggle {
-        display: flex;
+        display: flex !important;
+        flex-shrink: 0;
       }
       .top-bar {
         display: none;
       }
+      .nav-actions {
+        gap: 0.6rem;
+      }
+      #nav-book-btn {
+        display: none !important;
+      }
+      #nav-call-btn {
+        padding: 0.45rem 0.85rem;
+        font-size: 0.95rem;
+        gap: 0.4rem;
+      }
       .hero-section {
-        padding: 2.5rem 0 3.5rem;
+        padding: 2rem 0 3rem;
       }
       .hero-trust-strip {
         grid-template-columns: 1fr;
@@ -2392,20 +2652,124 @@
       .stats-card-grid {
         grid-template-columns: 1fr 1fr;
       }
-      .signage-table {
-        min-width: 580px;
-      }
       .calc-form-grid {
         grid-template-columns: 1fr;
       }
     }
 
+    /* Breakpoint 768px */
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 74px;
+      }
+      .mobile-bottom-bar {
+        display: flex;
+      }
+      .floating-whatsapp {
+        display: none !important;
+      }
+      .back-to-top {
+        bottom: 82px;
+        left: 14px;
+        width: 38px;
+        height: 38px;
+        font-size: 0.95rem;
+      }
+      .signage-table-wrapper {
+        display: none !important;
+      }
+      .signage-mobile-cards {
+        display: flex !important;
+      }
+      .vehicle-radio-content {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        padding: 0.75rem 1rem;
+        gap: 0.9rem;
+      }
+      .v-radio-img {
+        width: 85px;
+        height: 55px;
+        flex-shrink: 0;
+        margin-bottom: 0;
+      }
+      .v-radio-text-wrap {
+        align-items: flex-start;
+      }
+      .fare-calculator-box {
+        padding: 1.4rem;
+        gap: 1.5rem;
+      }
+      .calc-total-fare {
+        font-size: 2.5rem;
+      }
+      .service-card {
+        padding: 1.6rem 1.3rem;
+      }
+    }
+
+    /* Breakpoint 480px */
     @media (max-width: 480px) {
+      .container {
+        padding: 0 0.9rem;
+      }
+      .nav-container {
+        padding: 0.55rem 0.85rem;
+      }
+      .logo-badge {
+        width: 38px;
+        height: 38px;
+        font-size: 1.15rem;
+        border-radius: 9px;
+      }
       .brand-name {
-        font-size: 1.35rem;
+        font-size: 1.25rem;
+      }
+      .brand-tagline-sub {
+        font-size: 0.62rem;
+      }
+      .nav-call-full {
+        display: none;
+      }
+      .nav-call-short {
+        display: inline !important;
+      }
+      #nav-call-btn {
+        padding: 0.4rem 0.65rem;
+        font-size: 0.85rem;
+      }
+      .mobile-toggle {
+        width: 38px;
+        height: 38px;
+        font-size: 1.15rem;
       }
       .hero-heading {
-        font-size: 2.4rem;
+        font-size: 2.1rem;
+        line-height: 1.1;
+      }
+      .hero-lead {
+        font-size: 0.92rem;
+      }
+      .route-visualizer-card {
+        padding: 1.2rem 1rem;
+      }
+      .route-card-title {
+        font-size: 1.15rem;
+      }
+      .route-tab-btn {
+        font-size: 0.88rem;
+        padding: 0.5rem 0.3rem;
+      }
+      .step-info {
+        padding: 0.6rem 0.8rem;
+      }
+      .step-city {
+        font-size: 1.05rem;
+      }
+      .step-badge {
+        font-size: 0.68rem;
+        padding: 0.15rem 0.45rem;
       }
       .stats-card-grid {
         grid-template-columns: 1fr;
@@ -2413,16 +2777,65 @@
       .hero-ctas {
         flex-direction: column;
         width: 100%;
+        gap: 0.75rem;
       }
       .hero-ctas .btn-highway {
         width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 1.05rem;
       }
-      .floating-whatsapp {
-        bottom: 20px;
-        right: 20px;
-        width: 54px;
-        height: 54px;
-        font-size: 1.8rem;
+      .section-title {
+        font-size: 1.9rem;
+      }
+      .section-subtitle {
+        font-size: 0.92rem;
+      }
+      .booking-wrapper {
+        padding: 1.4rem 0.9rem;
+      }
+      .booking-submit-btn {
+        font-size: 1.1rem;
+        padding: 0.85rem 1rem;
+      }
+      .ac-toggle-group {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem;
+      }
+      .ac-toggle-content {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.88rem;
+      }
+      .proprietor-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      .phone-badges-group {
+        flex-direction: column;
+      }
+      .phone-badge-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .form-control, .calc-select, .calc-input {
+        font-size: 16px !important; /* Prevents auto-zoom on iOS */
+      }
+    }
+
+    /* Breakpoint 360px */
+    @media (max-width: 360px) {
+      .brand-name {
+        font-size: 1.1rem;
+      }
+      .hero-heading {
+        font-size: 1.85rem;
+      }
+      .tariff-m-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .tariff-m-thumb {
+        width: 100%;
+        height: 120px;
       }
     }
   </style>
@@ -2475,8 +2888,8 @@
 
       <!-- Desktop Header Actions -->
       <div class="nav-actions">
-        <a href="tel:9860271770" class="btn-highway btn-call" id="nav-call-btn">
-          <i class="fa-solid fa-phone-volume"></i> 9860271770
+        <a href="tel:9860271770" class="btn-highway btn-call" id="nav-call-btn" aria-label="Call 9860271770">
+          <i class="fa-solid fa-phone-volume"></i> <span class="nav-call-full">9860271770</span><span class="nav-call-short" style="display: none;">Call</span>
         </a>
         <a href="#booking" class="btn-highway btn-primary" id="nav-book-btn">
           Book Now
@@ -3092,6 +3505,104 @@
           </table>
         </div>
 
+        <!-- Mobile Cards Tariff View (Visible only on screens <= 768px) -->
+        <div class="signage-mobile-cards">
+          
+          <!-- Mobile Card 1: Sedan -->
+          <div class="tariff-mobile-card">
+            <div class="tariff-m-header">
+              <div class="tariff-m-thumb" onclick="openLightbox('sedan-etios.jpg', 'Sedan (Toyota Etios / Dzire)')">
+                <img src="sedan-etios.jpg" alt="Toyota Etios Sedan" />
+                <span class="tariff-m-badge"><i class="fa-solid fa-expand"></i> Tap Photo</span>
+              </div>
+              <div class="tariff-m-title-box">
+                <h3 class="tariff-m-name">Sedan (Toyota Etios)</h3>
+                <span class="tariff-m-subtitle">Comfortable for small families & airport transit</span>
+                <div class="tariff-m-specs">
+                  <span><i class="fa-solid fa-users"></i> 4 Seats</span>
+                  <span><i class="fa-solid fa-suitcase"></i> 2 Large Bags</span>
+                </div>
+              </div>
+            </div>
+            <div class="tariff-m-rates">
+              <div class="tariff-rate-chip nonac">
+                <span class="rate-type">Non-AC</span>
+                <span class="rate-val">₹11 <span class="unit">/ km</span></span>
+              </div>
+              <div class="tariff-rate-chip ac">
+                <span class="rate-type">AC Cab</span>
+                <span class="rate-val">₹12 <span class="unit">/ km</span></span>
+              </div>
+            </div>
+            <a href="#booking" class="btn-highway btn-primary tariff-m-btn" onclick="prefillVehicle('Sedan (Toyota Etios)')">
+              <i class="fa-solid fa-check"></i> Select & Book Sedan
+            </a>
+          </div>
+
+          <!-- Mobile Card 2: Ertiga / Toyota Rumion -->
+          <div class="tariff-mobile-card">
+            <div class="tariff-m-header">
+              <div class="tariff-m-thumb" onclick="openLightbox('toyota-rumion-highway.jpg', 'Toyota Rumion / Ertiga (MH20HQ6999)')">
+                <img src="toyota-rumion-highway.jpg" alt="Toyota Rumion Ertiga" />
+                <span class="tariff-m-badge"><i class="fa-solid fa-expand"></i> Tap Photo</span>
+              </div>
+              <div class="tariff-m-title-box">
+                <h3 class="tariff-m-name">Ertiga / Rumion</h3>
+                <span class="tariff-m-subtitle">Spacious MPV for family trips & outstation tours</span>
+                <div class="tariff-m-specs">
+                  <span><i class="fa-solid fa-users"></i> 6 - 7 Seats</span>
+                  <span><i class="fa-solid fa-suitcase"></i> 3 - 4 Bags</span>
+                </div>
+              </div>
+            </div>
+            <div class="tariff-m-rates">
+              <div class="tariff-rate-chip nonac">
+                <span class="rate-type">Non-AC</span>
+                <span class="rate-val">₹13 <span class="unit">/ km</span></span>
+              </div>
+              <div class="tariff-rate-chip ac">
+                <span class="rate-type">AC Cab</span>
+                <span class="rate-val">₹14 <span class="unit">/ km</span></span>
+              </div>
+            </div>
+            <a href="#booking" class="btn-highway btn-primary tariff-m-btn" onclick="prefillVehicle('Ertiga / Toyota Rumion')">
+              <i class="fa-solid fa-check"></i> Select & Book Rumion / Ertiga
+            </a>
+          </div>
+
+          <!-- Mobile Card 3: Kia Carens -->
+          <div class="tariff-mobile-card">
+            <div class="tariff-m-header">
+              <div class="tariff-m-thumb" onclick="openLightbox('kia-carens-side.jpg', 'Kia Carens (MH20GZ6999)')">
+                <img src="kia-carens-side.jpg" alt="Kia Carens" />
+                <span class="tariff-m-badge"><i class="fa-solid fa-expand"></i> Tap Photo</span>
+              </div>
+              <div class="tariff-m-title-box">
+                <h3 class="tariff-m-name">Kia Carens</h3>
+                <span class="tariff-m-subtitle">Luxury 6-7 Seater with plush recliner seats & dual AC</span>
+                <div class="tariff-m-specs">
+                  <span><i class="fa-solid fa-users"></i> 6 - 7 Seats</span>
+                  <span><i class="fa-solid fa-suitcase"></i> 4 Large Bags</span>
+                </div>
+              </div>
+            </div>
+            <div class="tariff-m-rates">
+              <div class="tariff-rate-chip nonac">
+                <span class="rate-type">Non-AC</span>
+                <span class="rate-val">₹15 <span class="unit">/ km</span></span>
+              </div>
+              <div class="tariff-rate-chip ac">
+                <span class="rate-type">AC Cab</span>
+                <span class="rate-val">₹16 <span class="unit">/ km</span></span>
+              </div>
+            </div>
+            <a href="#booking" class="btn-highway btn-primary tariff-m-btn" onclick="prefillVehicle('Kia Carens')">
+              <i class="fa-solid fa-check"></i> Select & Book Kia Carens
+            </a>
+          </div>
+
+        </div>
+
         <!-- Board Footer Notes -->
         <div class="signboard-footer-note">
           <div><i class="fa-solid fa-circle-info"></i> Toll, parking, and state border taxes are charged as per actual receipts. Standard daily minimum km rules apply.</div>
@@ -3231,8 +3742,10 @@
                     <div class="v-radio-img">
                       <img src="sedan-etios.jpg" alt="Toyota Etios Sedan" />
                     </div>
-                    <div class="v-radio-title">Sedan (Toyota Etios)</div>
-                    <div class="v-radio-rate">₹11 / ₹12 per km &bull; 4 Seater</div>
+                    <div class="v-radio-text-wrap">
+                      <div class="v-radio-title">Sedan (Toyota Etios)</div>
+                      <div class="v-radio-rate">₹11 / ₹12 per km &bull; 4 Seater</div>
+                    </div>
                   </div>
                 </label>
 
@@ -3242,8 +3755,10 @@
                     <div class="v-radio-img">
                       <img src="toyota-rumion-highway.jpg" alt="Toyota Rumion Ertiga" />
                     </div>
-                    <div class="v-radio-title">Ertiga / Rumion</div>
-                    <div class="v-radio-rate">₹13 / ₹14 per km &bull; 6-7 Seater</div>
+                    <div class="v-radio-text-wrap">
+                      <div class="v-radio-title">Ertiga / Rumion</div>
+                      <div class="v-radio-rate">₹13 / ₹14 per km &bull; 6-7 Seater</div>
+                    </div>
                   </div>
                 </label>
 
@@ -3253,8 +3768,10 @@
                     <div class="v-radio-img">
                       <img src="kia-carens-side.jpg" alt="Kia Carens" />
                     </div>
-                    <div class="v-radio-title">Kia Carens</div>
-                    <div class="v-radio-rate">₹15 / ₹16 per km &bull; Luxury MPV</div>
+                    <div class="v-radio-text-wrap">
+                      <div class="v-radio-title">Kia Carens</div>
+                      <div class="v-radio-rate">₹15 / ₹16 per km &bull; Luxury MPV</div>
+                    </div>
                   </div>
                 </label>
 
@@ -3611,6 +4128,22 @@
   <button class="back-to-top" id="back-to-top-btn" aria-label="Back to Top" onclick="scrollToTop()">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
+
+  <!-- 15. MOBILE STICKY BOTTOM ACTION BAR (One-Tap Fast Booking & Calling) -->
+  <nav class="mobile-bottom-bar" id="mobile-bottom-bar" aria-label="Mobile Quick Actions">
+    <a href="tel:9860271770" class="mobile-bar-btn mobile-bar-call" aria-label="Call Narendra Shewale">
+      <i class="fa-solid fa-phone-volume"></i>
+      <span>Call Now</span>
+    </a>
+    <a href="https://wa.me/919860271770?text=Hello%20Shree%20Renuka%20Travels,%20I%20want%20to%20inquire%20about%20a%20cab%20booking." target="_blank" rel="noopener noreferrer" class="mobile-bar-btn mobile-bar-wa" aria-label="Chat on WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span>WhatsApp</span>
+    </a>
+    <a href="#booking" class="mobile-bar-btn mobile-bar-book" aria-label="Book Cab Online">
+      <i class="fa-solid fa-calendar-check"></i>
+      <span>Book Cab</span>
+    </a>
+  </nav>
 
   <!-- ==========================================================================
        15. INTERACTIVE JAVASCRIPT LOGIC
