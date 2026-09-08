@@ -1126,8 +1126,8 @@
 
     .fleet-gallery-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
       margin-bottom: 4rem;
     }
 
@@ -3238,21 +3238,55 @@
         <div class="highway-divider"></div>
       </div>
 
-      <!-- Fleet Photo Cards Grid (4 real owner-provided photos) -->
+      <!-- Fleet Photo Cards Grid (3 distinct commercial vehicles) -->
       <div class="fleet-gallery-grid">
 
-        <!-- Photo 1: Toyota Rumion on Highway (MH 20 HQ 6999) -->
+        <!-- Car 1: Sedan (Toyota Etios / Dzire) -->
+        <div class="fleet-photo-card">
+          <div class="fleet-img-wrap" onclick="openLightbox('sedan-etios.jpg', 'Sedan (Toyota Etios / Dzire) — Executive & Airport Duty Cab')">
+            <img src="sedan-etios.jpg" alt="Toyota Etios Sedan Cab - Shree Renuka Travels" loading="lazy" />
+            <div class="fleet-img-overlay">
+              <span class="fleet-tag-pill" style="border-color: #F4A93B; color: #FFBE53;"><i class="fa-solid fa-car"></i> Sedan Class • 4 Seater</span>
+            </div>
+            <button class="zoom-hint-btn" title="View Full Photo"><i class="fa-solid fa-expand"></i></button>
+          </div>
+          <div class="fleet-card-body">
+            <h3 class="fleet-card-title">Sedan (Toyota Etios)</h3>
+            <p class="fleet-card-desc">Ideal for small families, solo executive trips & prompt airport transfers. Highly economical with smooth ride quality.</p>
+            <div class="fleet-rates-row">
+              <div class="rate-box-sub">
+                <span class="rate-box-label">Non-AC</span>
+                <span class="rate-box-val">₹11 <span style="font-size: 0.8rem; font-family: var(--font-body); color: var(--text-muted);">/ km</span></span>
+              </div>
+              <div class="rate-box-sub">
+                <span class="rate-box-label">AC Rate</span>
+                <span class="rate-box-val ac-val">₹12 <span style="font-size: 0.8rem; font-family: var(--font-body); color: var(--text-muted);">/ km</span></span>
+              </div>
+            </div>
+            <div class="fleet-specs-strip">
+              <div class="fleet-spec-item"><i class="fa-solid fa-users"></i> 4 Seater</div>
+              <div class="fleet-spec-item"><i class="fa-solid fa-suitcase"></i> 2 Large Bags</div>
+              <div class="fleet-spec-item"><i class="fa-solid fa-snowflake"></i> Chilled AC</div>
+              <div class="fleet-spec-item"><i class="fa-solid fa-shield-halved"></i> Sanitised</div>
+            </div>
+            <a href="#booking" class="btn-highway btn-primary" onclick="prefillVehicle('Sedan (Toyota Etios)')" style="margin-top: auto;">
+              <i class="fa-solid fa-calendar-check"></i> Book Sedan Cab
+            </a>
+          </div>
+        </div>
+
+        <!-- Car 2: Toyota Rumion / Ertiga (MH 20 HQ 6999) -->
         <div class="fleet-photo-card">
           <div class="fleet-img-wrap" onclick="openLightbox('toyota-rumion-highway.jpg', 'Toyota Rumion (MH 20 HQ 6999) — On National Highway Duty')">
             <img src="toyota-rumion-highway.jpg" alt="Toyota Rumion cab MH20HQ6999 on Maharashtra highway - Shree Renuka Travels" loading="lazy" />
             <div class="fleet-img-overlay">
-              <span class="fleet-tag-pill" style="border-color: #10B981; color: #34D399;"><i class="fa-solid fa-road"></i> MH 20 HQ 6999 • Highway Duty</span>
+              <span class="fleet-tag-pill" style="border-color: #10B981; color: #34D399;"><i class="fa-solid fa-road"></i> MH 20 HQ 6999 • MPV Class</span>
             </div>
             <button class="zoom-hint-btn" title="View Full Photo"><i class="fa-solid fa-expand"></i></button>
           </div>
           <div class="fleet-card-body">
             <h3 class="fleet-card-title">Ertiga / Toyota Rumion</h3>
-            <p class="fleet-card-desc">Our 6–7 seater MPV powering through Maharashtra highways — spacious, smooth, and built for long-distance comfort.</p>
+            <p class="fleet-card-desc">Our 6–7 seater spacious MPV (MH 20 HQ 6999) powering through Maharashtra highways with ample boot space for bags.</p>
             <div class="fleet-rates-row">
               <div class="rate-box-sub">
                 <span class="rate-box-label">Non-AC</span>
@@ -3275,52 +3309,18 @@
           </div>
         </div>
 
-        <!-- Photo 2: Toyota Rumion decorated (garland / ceremony) -->
+        <!-- Car 3: Kia Carens (MH 20 GZ 6999) -->
         <div class="fleet-photo-card">
-          <div class="fleet-img-wrap" onclick="openLightbox('toyota-rumion-garland.jpg', 'Toyota Rumion (MH 20 HQ 6999) — Ceremonially Decorated Fleet Vehicle')">
-            <img src="toyota-rumion-garland.jpg" alt="Toyota Rumion decorated cab MH20HQ6999 - Shree Renuka Travels" loading="lazy" />
+          <div class="fleet-img-wrap" onclick="openLightbox('kia-carens-front.jpg', 'Kia Carens (MH 20 GZ 6999) — Luxury MPV')">
+            <img src="kia-carens-front.jpg" alt="Kia Carens MH20GZ6999 - Shree Renuka Travels" loading="lazy" />
             <div class="fleet-img-overlay">
-              <span class="fleet-tag-pill" style="border-color: #10B981; color: #34D399;"><i class="fa-solid fa-star"></i> MH 20 HQ 6999 • Special Occasion</span>
+              <span class="fleet-tag-pill" style="border-color: #F4A93B; color: #FFBE53;"><i class="fa-solid fa-crown"></i> MH 20 GZ 6999 • Luxury MPV</span>
             </div>
             <button class="zoom-hint-btn" title="View Full Photo"><i class="fa-solid fa-expand"></i></button>
           </div>
           <div class="fleet-card-body">
-            <h3 class="fleet-card-title">Ertiga / Toyota Rumion</h3>
-            <p class="fleet-card-desc">Our Rumion — also available for special occasions & outstation trips. Rear luggage space and comfortable 3-row seating.</p>
-            <div class="fleet-rates-row">
-              <div class="rate-box-sub">
-                <span class="rate-box-label">Non-AC</span>
-                <span class="rate-box-val">₹13 <span style="font-size: 0.8rem; font-family: var(--font-body); color: var(--text-muted);">/ km</span></span>
-              </div>
-              <div class="rate-box-sub">
-                <span class="rate-box-label">AC Rate</span>
-                <span class="rate-box-val ac-val">₹14 <span style="font-size: 0.8rem; font-family: var(--font-body); color: var(--text-muted);">/ km</span></span>
-              </div>
-            </div>
-            <div class="fleet-specs-strip">
-              <div class="fleet-spec-item"><i class="fa-solid fa-users"></i> 6 – 7 Seater</div>
-              <div class="fleet-spec-item"><i class="fa-solid fa-suitcase"></i> 3 – 4 Large Bags</div>
-              <div class="fleet-spec-item"><i class="fa-solid fa-snowflake"></i> Chilled AC</div>
-              <div class="fleet-spec-item"><i class="fa-solid fa-shield-halved"></i> Well Maintained</div>
-            </div>
-            <a href="#booking" class="btn-highway btn-primary" onclick="prefillVehicle('Ertiga / Toyota Rumion')" style="margin-top: auto;">
-              <i class="fa-solid fa-calendar-check"></i> Book Rumion / Ertiga
-            </a>
-          </div>
-        </div>
-
-        <!-- Photo 3: Kia Carens front view (MH 20 GZ 6999) -->
-        <div class="fleet-photo-card">
-          <div class="fleet-img-wrap" onclick="openLightbox('kia-carens-front.jpg', 'Kia Carens (MH 20 GZ 6999) — Premium MPV Front View')">
-            <img src="kia-carens-front.jpg" alt="Kia Carens front view MH20GZ6999 - Shree Renuka Travels" loading="lazy" />
-            <div class="fleet-img-overlay">
-              <span class="fleet-tag-pill" style="border-color: #F4A93B; color: #FFBE53;"><i class="fa-solid fa-crown"></i> MH 20 GZ 6999 • Carens</span>
-            </div>
-            <button class="zoom-hint-btn" title="View Full Photo"><i class="fa-solid fa-expand"></i></button>
-          </div>
-          <div class="fleet-card-body">
-            <h3 class="fleet-card-title">Kia Carens (Premium MPV)</h3>
-            <p class="fleet-card-desc">Front-on look at our flagship Kia Carens — premium grille, bold stance, and superior ride quality for discerning travellers.</p>
+            <h3 class="fleet-card-title">Kia Carens (Luxury MPV)</h3>
+            <p class="fleet-card-desc">Flagship Kia Carens (MH 20 GZ 6999) featuring plush recliner seating, 3-zone climate control & superior highway ride quality.</p>
             <div class="fleet-rates-row">
               <div class="rate-box-sub">
                 <span class="rate-box-label">Non-AC</span>
@@ -3335,41 +3335,7 @@
               <div class="fleet-spec-item"><i class="fa-solid fa-users"></i> 6 – 7 Seater</div>
               <div class="fleet-spec-item"><i class="fa-solid fa-suitcase"></i> 4 Large Bags</div>
               <div class="fleet-spec-item"><i class="fa-solid fa-couch"></i> Recliner Seats</div>
-              <div class="fleet-spec-item"><i class="fa-solid fa-charging-station"></i> USB Chargers</div>
-            </div>
-            <a href="#booking" class="btn-highway btn-primary" onclick="prefillVehicle('Kia Carens')" style="margin-top: auto;">
-              <i class="fa-solid fa-calendar-check"></i> Book Kia Carens
-            </a>
-          </div>
-        </div>
-
-        <!-- Photo 4: Kia Carens side/three-quarter view (MH 20 GZ 6999) -->
-        <div class="fleet-photo-card">
-          <div class="fleet-img-wrap" onclick="openLightbox('kia-carens-side.jpg', 'Kia Carens (MH 20 GZ 6999) — Side Profile View')">
-            <img src="kia-carens-side.jpg" alt="Kia Carens side profile MH20GZ6999 - Shree Renuka Travels" loading="lazy" />
-            <div class="fleet-img-overlay">
-              <span class="fleet-tag-pill" style="border-color: #F4A93B; color: #FFBE53;"><i class="fa-solid fa-crown"></i> MH 20 GZ 6999 • Carens</span>
-            </div>
-            <button class="zoom-hint-btn" title="View Full Photo"><i class="fa-solid fa-expand"></i></button>
-          </div>
-          <div class="fleet-card-body">
-            <h3 class="fleet-card-title">Kia Carens (Premium MPV)</h3>
-            <p class="fleet-card-desc">Side profile of our Kia Carens — sleek aerodynamic design, wide body, and ample boot space for all your luggage needs.</p>
-            <div class="fleet-rates-row">
-              <div class="rate-box-sub">
-                <span class="rate-box-label">Non-AC</span>
-                <span class="rate-box-val">₹15 <span style="font-size: 0.8rem; font-family: var(--font-body); color: var(--text-muted);">/ km</span></span>
-              </div>
-              <div class="rate-box-sub">
-                <span class="rate-box-label">AC Rate</span>
-                <span class="rate-box-val ac-val">₹16 <span style="font-size: 0.8rem; font-family: var(--font-body); color: var(--text-muted);">/ km</span></span>
-              </div>
-            </div>
-            <div class="fleet-specs-strip">
-              <div class="fleet-spec-item"><i class="fa-solid fa-users"></i> 6 – 7 Seater</div>
-              <div class="fleet-spec-item"><i class="fa-solid fa-suitcase"></i> 4 Large Bags</div>
               <div class="fleet-spec-item"><i class="fa-solid fa-wind"></i> 3-Zone AC</div>
-              <div class="fleet-spec-item"><i class="fa-solid fa-star"></i> Premium Comfort</div>
             </div>
             <a href="#booking" class="btn-highway btn-primary" onclick="prefillVehicle('Kia Carens')" style="margin-top: auto;">
               <i class="fa-solid fa-calendar-check"></i> Book Kia Carens
