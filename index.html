@@ -2660,9 +2660,7 @@
         display: none !important;
       }
       #nav-call-btn {
-        padding: 0.45rem 0.85rem;
-        font-size: 0.95rem;
-        gap: 0.4rem;
+        display: none !important;
       }
       .hero-tagline-badge {
         font-size: 0.75rem;
@@ -2692,10 +2690,13 @@
         grid-template-columns: 1fr;
       }
       .stats-card-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
       }
       .calc-form-grid {
         grid-template-columns: 1fr;
+      }
+      .phone-badges-group {
+        flex-direction: column;
       }
     }
 
@@ -2749,42 +2750,45 @@
       .service-card {
         padding: 1.6rem 1.3rem;
       }
+      .stats-card-grid {
+        grid-template-columns: 1fr;
+      }
+      .phone-badges-group {
+        flex-direction: column;
+      }
+      .phone-badge-btn {
+        width: 100%;
+        justify-content: center;
+      }
     }
 
     /* Breakpoint 480px */
     @media (max-width: 480px) {
       .container {
-        padding: 0 0.9rem;
+        padding: 0 0.85rem;
       }
       .nav-container {
-        padding: 0.55rem 0.85rem;
+        padding: 0.55rem 0.75rem;
       }
       .logo-badge {
-        width: 38px;
-        height: 38px;
-        font-size: 1.15rem;
-        border-radius: 9px;
+        width: 36px;
+        height: 36px;
+        font-size: 1.05rem;
+        border-radius: 8px;
       }
       .brand-name {
-        font-size: 1.25rem;
+        font-size: 1.18rem;
       }
       .brand-tagline-sub {
-        font-size: 0.62rem;
-      }
-      .nav-call-full {
-        display: none;
-      }
-      .nav-call-short {
-        display: inline !important;
+        font-size: 0.6rem;
       }
       #nav-call-btn {
-        padding: 0.4rem 0.65rem;
-        font-size: 0.85rem;
+        display: none !important;
       }
       .mobile-toggle {
-        width: 38px;
-        height: 38px;
-        font-size: 1.15rem;
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
       }
       .hero-heading {
         font-size: 1.85rem !important;
