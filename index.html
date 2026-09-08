@@ -144,7 +144,7 @@
       color-scheme: dark;
       overflow-x: hidden;
       width: 100%;
-      max-width: 100%;
+      max-width: 100vw;
     }
 
     body {
@@ -155,7 +155,7 @@
       position: relative;
       overflow-x: hidden;
       width: 100%;
-      max-width: 100%;
+      max-width: 100vw;
       background-image: 
         radial-gradient(circle at 50% 0%, rgba(244, 169, 59, 0.08) 0%, transparent 60%),
         radial-gradient(circle at 100% 50%, rgba(28, 46, 82, 0.3) 0%, transparent 50%),
@@ -165,9 +165,11 @@
 
     .site-wrapper {
       width: 100%;
-      max-width: 100%;
+      max-width: 100vw;
       overflow-x: hidden;
+      overflow-y: visible;
       position: relative;
+      isolation: isolate;
     }
 
     /* Prevent any element from ever causing horizontal scroll */
@@ -653,7 +655,6 @@
       position: relative;
       padding: 4rem 0 5rem;
       overflow: hidden;
-      overflow-x: clip;
       background: linear-gradient(180deg, var(--navy-900) 0%, var(--navy-950) 100%);
     }
 
@@ -1033,7 +1034,6 @@
       background: var(--navy-900);
       position: relative;
       overflow: hidden;
-      overflow-x: clip;
     }
 
     .services-grid {
@@ -2324,13 +2324,14 @@
     .floating-whatsapp::after {
       content: '';
       position: absolute;
-      top: -4px;
-      left: -4px;
-      right: -4px;
-      bottom: -4px;
+      top: -6px;
+      left: -6px;
+      width: calc(100% + 12px);
+      height: calc(100% + 12px);
       border: 2px solid #25D366;
       border-radius: 50%;
       animation: waRadar 2s infinite ease-out;
+      pointer-events: none;
     }
 
     @keyframes waRadar {
@@ -2905,12 +2906,13 @@
     footer,
     .site-wrapper {
       max-width: 100%;
-      overflow-x: clip;
+      overflow-x: hidden;
     }
 
     /* Any container must never exceed viewport */
     .container,
     .nav-container {
+      width: 100%;
       max-width: 100%;
       box-sizing: border-box;
     }
@@ -2919,6 +2921,8 @@
       /* iOS Safari doesn't support background-attachment:fixed — disable it on mobile */
       body {
         background-attachment: scroll;
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
       }
 
       /* Ensure no flex/grid row bleeds out */
@@ -2935,7 +2939,7 @@
       .stats-card-grid {
         width: 100%;
         max-width: 100%;
-        overflow: hidden;
+        overflow-x: hidden;
       }
 
       /* Hard-constrain all images and media */
@@ -2955,6 +2959,27 @@
       p, h1, h2, h3, h4, h5, h6, li, span, a, label {
         overflow-wrap: break-word;
         word-break: break-word;
+      }
+
+      /* Ensure all sections clip overflowing children on mobile */
+      section, header, footer, nav, div {
+        max-width: 100%;
+      }
+
+      /* Hero content should not exceed container */
+      .hero-content {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      /* Fix signage table wrapper overflow */
+      .highway-signboard-wrap {
+        overflow-x: hidden;
+      }
+
+      /* Fix booking wrapper */
+      .booking-wrapper {
+        overflow-x: hidden;
       }
     }
   </style>
