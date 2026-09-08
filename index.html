@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
   
   <!-- SEO Meta Tags -->
   <title>Shree Renuka Travels | Best Cab Service Chh. Sambhajinagar to Pune & Mumbai</title>
@@ -138,13 +138,14 @@
       padding: 0;
     }
 
+    html, body {
+      overflow-x: clip; /* clip is stronger than hidden and doesn't break position:fixed on iOS */
+    }
+
     html {
       scroll-behavior: smooth;
       font-size: 16px;
       color-scheme: dark;
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
     }
 
     body {
@@ -152,15 +153,18 @@
       background-color: var(--navy-950);
       color: var(--text-white);
       line-height: 1.6;
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
       position: relative;
       background-image: 
         radial-gradient(circle at 50% 0%, rgba(244, 169, 59, 0.08) 0%, transparent 60%),
         radial-gradient(circle at 100% 50%, rgba(28, 46, 82, 0.3) 0%, transparent 50%),
         radial-gradient(circle at 0% 80%, rgba(18, 33, 61, 0.4) 0%, transparent 60%);
       background-attachment: fixed;
+    }
+
+    /* Prevent any element from ever causing horizontal scroll */
+    * {
+      box-sizing: border-box;
+      min-width: 0;
     }
 
     img {
@@ -530,7 +534,7 @@
     .mobile-drawer {
       position: fixed;
       top: 0;
-      right: -100%;
+      right: -110%;
       width: 85%;
       max-width: 360px;
       height: 100vh;
@@ -633,6 +637,7 @@
       position: relative;
       padding: 4rem 0 5rem;
       overflow: hidden;
+      overflow-x: clip;
       background: linear-gradient(180deg, var(--navy-900) 0%, var(--navy-950) 100%);
     }
 
@@ -1007,6 +1012,8 @@
       padding: 6rem 0;
       background: var(--navy-900);
       position: relative;
+      overflow: hidden;
+      overflow-x: clip;
     }
 
     .services-grid {
@@ -2843,6 +2850,77 @@
       .tariff-m-thumb {
         width: 100%;
         height: 120px;
+      }
+    }
+
+    /* ==========================================================================
+       GLOBAL MOBILE HORIZONTAL SCROLL PREVENTION
+       ========================================================================== */
+
+    /* All sections must clip their own overflowing children */
+    section,
+    .top-bar,
+    .site-header,
+    .hero-section,
+    .services-section,
+    .fleet-section,
+    .tariff-section,
+    .fare-calc-section,
+    .booking-section,
+    .about-section,
+    .contact-section,
+    footer {
+      max-width: 100%;
+      overflow-x: clip;
+    }
+
+    /* Any container must never exceed viewport */
+    .container,
+    .nav-container {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      /* iOS Safari doesn't support background-attachment:fixed — disable it on mobile */
+      body {
+        background-attachment: scroll;
+      }
+
+      /* Ensure no flex/grid row bleeds out */
+      .hero-grid,
+      .services-grid,
+      .fleet-gallery-grid,
+      .booking-form,
+      .vehicle-radio-group,
+      .ac-toggle-group,
+      .fare-calculator-box,
+      .about-grid,
+      .contact-grid,
+      .footer-grid,
+      .stats-card-grid {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+      }
+
+      /* Hard-constrain all images and media */
+      img, video, iframe, canvas, svg {
+        max-width: 100% !important;
+        width: auto;
+      }
+
+      /* Tables must scroll within their own container, not the page */
+      .signage-table-wrapper {
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* Prevent long words/text from breaking layout */
+      p, h1, h2, h3, h4, h5, h6, li, span, a, label {
+        overflow-wrap: break-word;
+        word-break: break-word;
       }
     }
   </style>
