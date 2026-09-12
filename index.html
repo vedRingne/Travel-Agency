@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0B1325" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=yes" />
+  <link rel="canonical" href="https://shreerenukatravels.in" />
   
   <!-- SEO Meta Tags -->
   <title>Shree Renuka Travels | Best Cab Service Chh. Sambhajinagar to Pune & Mumbai</title>
@@ -23,7 +28,7 @@
 
   <!-- Google Fonts: Barlow Condensed & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Font Awesome Icons CDN -->
@@ -2982,6 +2987,305 @@
         overflow-x: hidden;
       }
     }
+
+    /* ==========================================================================
+       MOBILE UX ENHANCEMENTS & DEPLOYMENT POLISH
+       ========================================================================== */
+
+    /* Touch improvements - eliminates 300ms tap delay & grey flash */
+    button, a, .vehicle-radio-card, .ac-toggle-card, .route-tab-btn,
+    .fleet-img-wrap, .tariff-m-thumb, .vehicle-thumb-box,
+    .mobile-bar-btn, .zoom-hint-btn {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Safe area inset support for iPhone notch/Dynamic Island */
+    body {
+      padding-left: env(safe-area-inset-left, 0px);
+      padding-right: env(safe-area-inset-right, 0px);
+    }
+
+    /* ---- Hero section centering on mobile ---- */
+    @media (max-width: 860px) {
+      .hero-section {
+        padding: 2.5rem 0 3.5rem;
+      }
+      .hero-content {
+        text-align: center;
+      }
+      .hero-tagline-badge {
+        justify-content: center;
+        margin: 0 auto 1.2rem;
+      }
+      .hero-trust-strip {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.6rem;
+      }
+      .trust-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.4rem;
+      }
+      .hero-ctas {
+        justify-content: center;
+      }
+    }
+
+    /* Trust strip: 2-col on very small screens */
+    @media (max-width: 520px) {
+      .hero-trust-strip {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.7rem;
+      }
+      .trust-item:last-child {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    /* ---- Services: 2-col on tablet ---- */
+    @media (max-width: 1024px) and (min-width: 601px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ---- Fleet gallery: 2-col on tablet ---- */
+    @media (max-width: 1024px) and (min-width: 601px) {
+      .fleet-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ---- About stats: always 2-col on mobile ---- */
+    @media (max-width: 860px) {
+      .stats-card-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem;
+      }
+      .stat-num {
+        font-size: 2.4rem;
+      }
+    }
+
+    /* ---- Route card improvements on tiny screens ---- */
+    @media (max-width: 480px) {
+      .route-visualizer-card {
+        padding: 1rem 0.85rem;
+      }
+      .step-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+        padding: 0.55rem 0.75rem;
+      }
+      .step-badge {
+        align-self: flex-start;
+      }
+      .route-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+      }
+      .step-city {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* ---- Booking form on small screens ---- */
+    @media (max-width: 600px) {
+      .booking-wrapper {
+        padding: 1.2rem 0.8rem;
+        border-width: 1px;
+        border-radius: 12px;
+      }
+      .booking-top-notice {
+        flex-direction: column;
+        gap: 0.4rem;
+        font-size: 0.82rem;
+        padding: 0.65rem 0.9rem;
+      }
+      .booking-top-notice i {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* ---- Fare calculator on mobile ---- */
+    @media (max-width: 480px) {
+      .fare-calculator-box {
+        padding: 1.2rem 0.85rem;
+        gap: 1.2rem;
+      }
+      .calc-result-col {
+        padding: 1.2rem 0.8rem;
+      }
+      .calc-total-fare {
+        font-size: 2.2rem;
+      }
+      .calc-inputs-col h3 {
+        font-size: 1.4rem;
+      }
+    }
+
+    /* ---- Map box: better on mobile ---- */
+    @media (max-width: 768px) {
+      .map-box-col {
+        min-height: 280px;
+      }
+      .map-iframe-wrap {
+        min-height: 250px;
+      }
+      .map-header-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* ---- Footer centered on mobile ---- */
+    @media (max-width: 860px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+      .footer-col h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .footer-links a {
+        justify-content: center;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.5rem;
+      }
+      .footer-tagline-quote {
+        text-align: center;
+        border-left: none;
+        border-top: 3px solid var(--amber-500);
+        padding-left: 0;
+        padding-top: 0.8rem;
+      }
+    }
+
+    /* ---- Mobile bottom bar: better touch ---- */
+    @media (max-width: 768px) {
+      .mobile-bottom-bar {
+        padding: 0.4rem 0.5rem calc(0.4rem + env(safe-area-inset-bottom, 8px));
+        gap: 0.35rem;
+      }
+      .mobile-bar-btn {
+        font-size: 0.78rem;
+        padding: 0.4rem 0.2rem;
+        min-height: 54px;
+        border-radius: 10px;
+      }
+      .mobile-bar-btn i {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* ---- Section header improvements ---- */
+    @media (max-width: 480px) {
+      .section-header {
+        margin-bottom: 2rem;
+      }
+      .highway-divider {
+        width: 100px;
+      }
+    }
+
+    /* ---- Signboard improvements on mobile ---- */
+    @media (max-width: 480px) {
+      .signboard-header {
+        padding: 0.9rem 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+      }
+      .signboard-title {
+        font-size: 1.3rem;
+        letter-spacing: 0.04em;
+      }
+      .signboard-footer-note {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.8rem 1rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* ---- Contact cards on mobile ---- */
+    @media (max-width: 480px) {
+      .contact-card-item {
+        padding: 1rem;
+        gap: 0.8rem;
+      }
+      .contact-card-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+      }
+    }
+
+    /* ---- Lightbox: bottom sheet on mobile ---- */
+    @media (max-width: 600px) {
+      .lightbox-modal {
+        padding: 0.5rem;
+        align-items: flex-end;
+      }
+      .lightbox-content {
+        border-radius: 16px 16px 0 0;
+        max-height: 90vh;
+      }
+      .lightbox-img {
+        max-height: 60vh;
+      }
+      .lightbox-caption {
+        padding: 0.75rem 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+    }
+
+    /* ---- Reduced motion accessibility ---- */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* ---- iOS momentum scrolling ---- */
+    .mobile-drawer,
+    .signage-table-wrapper {
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* ---- Print styles ---- */
+    @media print {
+      .site-header, .mobile-bottom-bar, .floating-whatsapp,
+      .back-to-top, .mobile-drawer, .mobile-drawer-overlay,
+      .lightbox-modal { display: none !important; }
+      body {
+        background: white !important;
+        color: black !important;
+        padding-bottom: 0 !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -4130,7 +4434,7 @@
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15007.472251390977!2d75.3283287!3d19.8705357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdb9873d6b0a6e3%3A0x673966580f58021a!2sMondha%20Naka%2C%20Chhatrapati%20Sambhajinagar%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
               title="Shree Renuka Travels Location Monda Naka Chh Sambhajinagar"
               loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade">
+              referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
             </iframe>
           </div>
         </div>
