@@ -8,23 +8,45 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="format-detection" content="telephone=yes" />
   <link rel="canonical" href="https://shreerenukatravels.in" />
+  <link rel="preload" as="image" href="temple-hero-bg.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="logo.png" fetchpriority="high" />
   
   <!-- SEO Meta Tags -->
-  <title>Shree Renuka Travels | Best Cab Service Chh. Sambhajinagar to Pune & Mumbai</title>
-  <meta name="description" content="Book affordable, safe, and reliable 24/7 cab service from Chh. Sambhajinagar to Pune, Mumbai & Airports. Sedan, Ertiga, Kia Carens available. Rates starting at ₹11/km. Call 9860271770 / 7410788958." />
-  <meta name="keywords" content="cab service Sambhajinagar to Pune, cab Sambhajinagar to Mumbai, airport taxi Sambhajinagar, one way cab Sambhajinagar, Shree Renuka Travels, Narendra Shewale, taxi service Aurangabad, Ertiga cab Aurangabad, Pune airport drop" />
+  <title>Shree Renuka Travels | Best Cab Service Across Maharashtra & Outstation Tours</title>
+  <meta name="description" content="Book affordable, safe, and reliable 24/7 cab service all over Maharashtra from Chh. Sambhajinagar to Pune, Mumbai, Nashik, Shirdi, Nagpur & Airports. Sedan, Ertiga, Kia Carens available. Rates starting at ₹11/km. Call 9860271770 / 7410788958." />
+  <meta name="keywords" content="cab service Maharashtra, outstation cab Sambhajinagar, taxi service all over Maharashtra, cab Sambhajinagar to Pune, cab Sambhajinagar to Mumbai, airport taxi Sambhajinagar, one way cab Maharashtra, Shree Renuka Travels, Narendra Shewale, taxi service Aurangabad, Ertiga cab Aurangabad, Pune airport drop, Shirdi cab, Nashik taxi" />
   <meta name="author" content="Shree Renuka Travels" />
   <meta name="robots" content="index, follow" />
 
   <!-- Open Graph / Social Sharing Meta Tags -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Shree Renuka Travels - Safe & Secure Journeys Since 2019" />
-  <meta property="og:description" content="Daily cab service between Chh. Sambhajinagar & Pune / Mumbai. One-way drops & airport duties. Transparent per-km rates." />
-  <meta property="og:image" content="toyota-rumion-highway.jpg" />
+  <meta property="og:title" content="Shree Renuka Travels - Safe & Secure Journeys Across Maharashtra" />
+  <meta property="og:description" content="Premium 24/7 cab service across all Maharashtra. Daily outstation drops, pilgrimages & airport duties from Chh. Sambhajinagar. Transparent per-km rates." />
+  <meta property="og:image" content="logo.png" />
   <meta property="og:url" content="https://shreerenukatravels.in" />
 
-  <!-- Favicon Icon (SVG) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2312213D'/><path d='M20 65 L35 35 L65 35 L80 65 Z' fill='%23F4A93B'/><circle cx='35' cy='68' r='8' fill='%23F7F4EC'/><circle cx='65' cy='68' r='8' fill='%23F7F4EC'/><path d='M30 46 L70 46' stroke='%2312213D' stroke-width='4'/></svg>" />
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="logo-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo-192.png" />
+
+  <!-- Instant Theme Initializer (Prevents flash of wrong theme before page renders) -->
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('theme');
+        var theme = savedTheme;
+        if (!theme) {
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          theme = prefersDark ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.style.colorScheme = theme;
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
 
   <!-- Google Fonts: Barlow Condensed & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -48,6 +70,7 @@
     "foundingDate": "2019",
     "slogan": "Providing Safe and Secure Journey to Reach Destination",
     "telephone": ["+919860271770", "+917410788958"],
+    "email": "shreerenukatravels99@shreenukatravels.in",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Balaji Nagar, Near Monda Naka",
@@ -69,11 +92,15 @@
     },
     "priceRange": "₹11 - ₹16 per km",
     "areaServed": [
+      "Maharashtra",
       "Chhatrapati Sambhajinagar",
       "Pune",
       "Mumbai",
       "Shirdi",
       "Nashik",
+      "Kolhapur",
+      "Nagpur",
+      "Solapur",
       "Thane",
       "Navi Mumbai"
     ]
@@ -82,26 +109,114 @@
 
   <style>
     /* ==========================================================================
-       1. ROOT DESIGN TOKENS & "NIGHT HIGHWAY" PALETTE
+       1. ROOT DESIGN TOKENS & COLOR THEMES (LIGHT DEFAULT, DARK UNDER [data-theme="dark"])
        ========================================================================== */
     :root {
+      /* Semantic Theme Variables - Light Mode by Default */
+      --bg-primary: #F8FAFC;
+      --bg-surface: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --border-color: #E2E8F0;
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --accent-color: #D97706;
+      --accent-hover: #B45309;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-on-accent: #080D1A;
+
+      /* Header & Sticky Navbar (Light Mode) */
+      --header-bg: rgba(255, 255, 255, 0.94);
+      --header-bg-scrolled: rgba(255, 255, 255, 0.98);
+      --header-border: rgba(217, 119, 6, 0.25);
+      --header-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+      /* Palette Tokens mapped for Default Light Mode */
+      --navy-950: #F8FAFC;
+      --navy-900: #FFFFFF;
+      --navy-850: #F1F5F9;
+      --navy-800: #FFFFFF;
+      --navy-700: #E2E8F0;
+      --navy-600: #CBD5E1;
+      
+      /* Highway Amber / Headlamp Accents */
+      --amber-400: #B45309;
+      --amber-500: #D97706;
+      --amber-600: #92400E;
+      --amber-glow: rgba(217, 119, 6, 0.22);
+      
+      /* High Contrast Cream & Neutrals */
+      --cream-50: #0F172A;
+      --cream-100: #1E293B;
+      --cream-200: #334155;
+      --cream-300: #475569;
+      
+      /* Highway Sign Accents */
+      --sign-green: #0E8044;
+      --sign-green-bright: #059669;
+      --sign-blue: #1D58A7;
+      
+      /* Text Colors */
+      --text-white: #0F172A;
+      --text-muted: #475569;
+      --text-dim: #64748B;
+      --text-dark: #0F172A;
+      --text-dark-muted: #64748B;
+      
+      /* UI Surfacing & Shadows */
+      --glass-card: #FFFFFF;
+      --glass-card-hover: #FFFFFF;
+      --glass-border: rgba(217, 119, 6, 0.3);
+      --glass-border-subtle: #E2E8F0;
+      --card-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.04);
+      --glow-shadow: 0 0 20px rgba(217, 119, 6, 0.16);
+      
+      /* Typography */
+      --font-display: 'Barlow Condensed', 'Oswald', sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      
+      /* Transitions */
+      --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      --theme-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* DARK THEME ("NIGHT HIGHWAY" PALETTE) */
+    [data-theme="dark"] {
+      /* Semantic Theme Variables - Dark Mode */
+      --bg-primary: #080D1A;
+      --bg-surface: #0B1325;
+      --bg-card: #12213D;
+      --border-color: rgba(244, 169, 59, 0.22);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --accent-color: #F4A93B;
+      --accent-hover: #FFBE53;
+      --text-primary: #FFFFFF;
+      --text-secondary: #9BB0D3;
+      --text-on-accent: #080D1A;
+
+      /* Header & Sticky Navbar (Dark Mode) */
+      --header-bg: rgba(11, 19, 37, 0.92);
+      --header-bg-scrolled: rgba(8, 13, 26, 0.98);
+      --header-border: rgba(244, 169, 59, 0.2);
+      --header-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+
       /* Primary Brand Colors */
       --navy-950: #080D1A;
       --navy-900: #0B1325;
       --navy-850: #101B33;
-      --navy-800: #12213D; /* Base Navy per spec */
+      --navy-800: #12213D;
       --navy-700: #1C2E52;
       --navy-600: #273E6D;
       
       /* Highway Amber / Headlamp Yellow */
       --amber-400: #FFBE53;
-      --amber-500: #F4A93B; /* Accent Amber per spec */
+      --amber-500: #F4A93B;
       --amber-600: #E08C1B;
       --amber-glow: rgba(244, 169, 59, 0.45);
       
       /* High Contrast Cream & Neutrals */
       --cream-50: #FDFBF7;
-      --cream-100: #F7F4EC; /* Light Cream per spec */
+      --cream-100: #F7F4EC;
       --cream-200: #EFE9DB;
       --cream-300: #DDD5C1;
       
@@ -124,14 +239,94 @@
       --glass-border-subtle: rgba(255, 255, 255, 0.08);
       --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
       --glow-shadow: 0 0 25px rgba(244, 169, 59, 0.25);
-      
-      /* Typography */
-      --font-display: 'Barlow Condensed', 'Oswald', sans-serif;
-      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      
-      /* Transitions */
-      --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      --transition-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Fallback for system dark mode when theme is not explicitly overridden */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg-primary: #080D1A;
+        --bg-surface: #0B1325;
+        --bg-card: #12213D;
+        --border-color: rgba(244, 169, 59, 0.22);
+        --border-subtle: rgba(255, 255, 255, 0.08);
+        --accent-color: #F4A93B;
+        --accent-hover: #FFBE53;
+        --text-primary: #FFFFFF;
+        --text-secondary: #9BB0D3;
+        --text-on-accent: #080D1A;
+        --header-bg: rgba(11, 19, 37, 0.92);
+        --header-bg-scrolled: rgba(8, 13, 26, 0.98);
+        --header-border: rgba(244, 169, 59, 0.2);
+        --header-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        --navy-950: #080D1A;
+        --navy-900: #0B1325;
+        --navy-850: #101B33;
+        --navy-800: #12213D;
+        --navy-700: #1C2E52;
+        --navy-600: #273E6D;
+        --amber-400: #FFBE53;
+        --amber-500: #F4A93B;
+        --amber-600: #E08C1B;
+        --amber-glow: rgba(244, 169, 59, 0.45);
+        --cream-50: #FDFBF7;
+        --cream-100: #F7F4EC;
+        --cream-200: #EFE9DB;
+        --cream-300: #DDD5C1;
+        --sign-green: #0E8044;
+        --sign-green-bright: #10B981;
+        --sign-blue: #1D58A7;
+        --text-white: #FFFFFF;
+        --text-muted: #9BB0D3;
+        --text-dim: #6B80A5;
+        --text-dark: #12213D;
+        --text-dark-muted: #4B5563;
+        --glass-card: rgba(18, 33, 61, 0.75);
+        --glass-card-hover: rgba(28, 46, 82, 0.85);
+        --glass-border: rgba(244, 169, 59, 0.22);
+        --glass-border-subtle: rgba(255, 255, 255, 0.08);
+        --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --glow-shadow: 0 0 25px rgba(244, 169, 59, 0.25);
+      }
+    }
+
+    /* Smooth theme transitions (about 0.3s) */
+    body,
+    .site-header,
+    .top-bar,
+    .fleet-photo-card,
+    .service-card,
+    .tariff-board-card,
+    .highway-signboard-wrap,
+    .tariff-mobile-card,
+    .fare-calculator-box,
+    .booking-wrapper,
+    .stats-card,
+    .contact-card,
+    .map-box-col,
+    .site-footer,
+    .mobile-drawer,
+    .mobile-bottom-bar,
+    .theme-toggle-btn,
+    .form-control,
+    .calc-select,
+    .calc-input,
+    .vehicle-radio-content,
+    .badge-tag,
+    .trust-item,
+    .nav-link,
+    .btn-highway {
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Responsive Navbar Height Variable for Matching Padding */
+    :root {
+      --navbar-height: 108px;
+    }
+
+    @media (max-width: 860px) {
+      :root {
+        --navbar-height: 66px;
+      }
     }
 
     /* ==========================================================================
@@ -145,11 +340,23 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--navbar-height) + 15px);
       font-size: 16px;
-      color-scheme: dark;
+      color-scheme: light;
       overflow-x: hidden;
       width: 100%;
       max-width: 100vw;
+    }
+
+    [data-theme="dark"] html {
+      color-scheme: dark;
+    }
+
+    /* Ensure anchor link jump targets are never obscured by fixed navbar */
+    section[id],
+    div[id].rates-section,
+    div[id].services-section {
+      scroll-margin-top: calc(var(--navbar-height) + 15px);
     }
 
     body {
@@ -161,11 +368,19 @@
       overflow-x: hidden;
       width: 100%;
       max-width: 100vw;
+      padding-top: var(--navbar-height);
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(217, 119, 6, 0.05) 0%, transparent 60%),
+        radial-gradient(circle at 100% 50%, rgba(226, 232, 240, 0.7) 0%, transparent 50%),
+        radial-gradient(circle at 0% 80%, rgba(241, 245, 249, 0.9) 0%, transparent 60%);
+      background-attachment: fixed;
+    }
+
+    [data-theme="dark"] body {
       background-image: 
         radial-gradient(circle at 50% 0%, rgba(244, 169, 59, 0.08) 0%, transparent 60%),
         radial-gradient(circle at 100% 50%, rgba(28, 46, 82, 0.3) 0%, transparent 50%),
         radial-gradient(circle at 0% 80%, rgba(18, 33, 61, 0.4) 0%, transparent 60%);
-      background-attachment: fixed;
     }
 
     .site-wrapper {
@@ -327,22 +542,44 @@
       text-shadow: 0 0 10px var(--amber-glow);
     }
 
-    /* Main Navbar */
-    .site-header {
-      position: sticky;
+    /* ==========================================================================
+       FIXED TOP NAVIGATION (Stationary at top of screen while content scrolls)
+       ========================================================================== */
+    .fixed-nav-wrapper {
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
       z-index: 1000;
-      background: rgba(11, 19, 37, 0.92);
+      background: var(--header-bg);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(244, 169, 59, 0.2);
-      transition: var(--transition-smooth);
+      border-bottom: 1px solid var(--header-border);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    [data-theme="dark"] .fixed-nav-wrapper {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .fixed-nav-wrapper.scrolled {
+      background: var(--header-bg-scrolled);
+      box-shadow: var(--header-shadow);
+      border-bottom-color: var(--header-border);
+    }
+
+    .site-header {
+      background: transparent;
+      border-bottom: none;
+      transition: background-color 0.3s ease;
     }
 
     .site-header.scrolled {
-      background: rgba(8, 13, 26, 0.98);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-      border-bottom-color: rgba(244, 169, 59, 0.4);
+      background: transparent;
+      box-shadow: none;
+      border-bottom: none;
     }
 
     .nav-container {
@@ -365,26 +602,31 @@
     .logo-badge {
       width: 48px;
       height: 48px;
-      background: linear-gradient(135deg, var(--navy-800) 0%, var(--navy-700) 100%);
-      border: 2px solid var(--amber-500);
-      border-radius: 12px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--amber-500);
-      font-size: 1.4rem;
-      box-shadow: 0 0 15px rgba(244, 169, 59, 0.3);
+      box-shadow: 0 0 16px rgba(244, 169, 59, 0.45);
       position: relative;
+      background: #0B1325;
+      padding: 1px;
+      flex-shrink: 0;
+      border: 1.5px solid rgba(244, 169, 59, 0.65);
       overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .logo-badge::after {
-      content: '';
-      position: absolute;
+    .logo-badge:hover {
+      transform: scale(1.08) rotate(2deg);
+      box-shadow: 0 0 24px rgba(244, 169, 59, 0.7);
+    }
+
+    .logo-badge img {
       width: 100%;
-      height: 2px;
-      background: var(--amber-500);
-      bottom: 6px;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
     }
 
     .brand-text {
@@ -419,7 +661,7 @@
     .nav-menu {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 1.25rem;
       list-style: none;
     }
 
@@ -546,6 +788,751 @@
       color: var(--navy-950);
     }
 
+    /* Theme Toggle Button (Light / Dark) */
+    .theme-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--navy-800);
+      border: 1.5px solid var(--amber-500);
+      color: var(--amber-500);
+      font-size: 1.15rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 10px var(--amber-glow);
+    }
+
+    .theme-toggle-btn:hover {
+      background: var(--amber-500);
+      color: #080D1A;
+      transform: scale(1.08) rotate(15deg);
+      box-shadow: 0 0 18px var(--amber-glow);
+    }
+
+    .theme-toggle-btn:focus-visible {
+      outline: 2px solid var(--amber-500);
+      outline-offset: 3px;
+    }
+
+    /* Light Theme Explicit Polish & Surface Overrides */
+    [data-theme="light"] .top-bar {
+      background: #F1F5F9;
+      border-bottom: 1px solid #E2E8F0;
+      color: #475569;
+    }
+
+    [data-theme="light"] .top-phone-link {
+      color: #1E293B;
+    }
+
+    [data-theme="light"] .top-phone-link:hover {
+      color: #D97706;
+    }
+
+    [data-theme="light"] .logo-badge {
+      background: linear-gradient(135deg, #FFF7ED 0%, #FEF3C7 100%);
+      border-color: #D97706;
+      color: #D97706;
+      box-shadow: 0 0 12px rgba(217, 119, 6, 0.2);
+    }
+
+    [data-theme="light"] .nav-link {
+      color: #1E293B;
+    }
+
+    [data-theme="light"] .nav-link:hover,
+    [data-theme="light"] .nav-link.active {
+      color: #D97706;
+    }
+
+    [data-theme="light"] .btn-primary {
+      color: #080D1A;
+    }
+
+    [data-theme="light"] .btn-secondary {
+      background: #FFFFFF;
+      color: #1E293B;
+      border-color: #CBD5E1;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="light"] .btn-secondary:hover {
+      background: #F8FAFC;
+      border-color: #D97706;
+      color: #D97706;
+    }
+
+    [data-theme="light"] .btn-call {
+      background: rgba(16, 185, 129, 0.12);
+      color: #047857;
+      border-color: #059669;
+    }
+
+    [data-theme="light"] .btn-call:hover {
+      background: #059669;
+      color: #FFFFFF;
+    }
+
+    [data-theme="light"] .trust-item {
+      background: #FFFFFF;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="light"] .service-card,
+    [data-theme="light"] .fleet-photo-card,
+    [data-theme="light"] .stats-card,
+    [data-theme="light"] .stat-box,
+    [data-theme="light"] .proprietor-card,
+    [data-theme="light"] .contact-card,
+    [data-theme="light"] .contact-card-item,
+    [data-theme="light"] .fare-calculator-box {
+      background: #FFFFFF;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      border-color: #E2E8F0;
+    }
+
+    [data-theme="light"] .service-card:hover,
+    [data-theme="light"] .fleet-photo-card:hover {
+      border-color: #D97706;
+      box-shadow: 0 15px 35px rgba(217, 119, 6, 0.12);
+    }
+
+    [data-theme="light"] .booking-wrapper {
+      background: #FFFFFF;
+      border-color: #D97706;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+    }
+
+    [data-theme="light"] .form-control {
+      background: #FFFFFF;
+      border-color: #CBD5E1;
+      color: #0F172A;
+    }
+
+    [data-theme="light"] .form-control:focus {
+      background: #FFFFFF;
+      border-color: #D97706;
+      box-shadow: 0 0 12px rgba(217, 119, 6, 0.25);
+    }
+
+    [data-theme="light"] .vehicle-radio-content {
+      background: #F8FAFC;
+      border-color: #E2E8F0;
+    }
+
+    [data-theme="light"] .vehicle-radio-card input:checked + .vehicle-radio-content {
+      background: #FEF3C7;
+      border-color: #D97706;
+      box-shadow: 0 0 15px rgba(217, 119, 6, 0.2);
+    }
+
+    [data-theme="light"] .calc-select,
+    [data-theme="light"] .calc-input {
+      background: #F8FAFC;
+      border-color: #CBD5E1;
+      color: #0F172A;
+    }
+
+    [data-theme="light"] .calc-result-col {
+      background: #FFFBEB;
+      border-color: #D97706;
+    }
+
+    [data-theme="light"] .rate-box-sub {
+      background: #F1F5F9;
+      border-color: #E2E8F0;
+    }
+
+    [data-theme="light"] .highway-signboard-wrap {
+      background: #FFFFFF;
+      border-color: #D97706;
+      outline-color: #E2E8F0;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    [data-theme="light"] .signage-table th {
+      background: #F1F5F9;
+      color: #B45309;
+      border-bottom-color: #E2E8F0;
+    }
+
+    [data-theme="light"] .signage-table td {
+      border-bottom-color: #E2E8F0;
+      color: #1E293B;
+    }
+
+    [data-theme="light"] .signage-table tr:hover td {
+      background: #FFFBEB;
+    }
+
+    [data-theme="light"] .tariff-mobile-card {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="light"] .step-info {
+      background: #F8FAFC;
+      border-color: #E2E8F0;
+    }
+
+    [data-theme="light"] .step-info:hover {
+      background: #F1F5F9;
+      border-color: #D97706;
+    }
+
+    [data-theme="light"] .route-tabs {
+      background: #F1F5F9;
+      border-color: #E2E8F0;
+    }
+
+    [data-theme="light"] .route-tab-btn {
+      color: #475569;
+    }
+
+    [data-theme="light"] .route-tab-btn.active {
+      background: #D97706;
+      color: #080D1A;
+    }
+
+    [data-theme="light"] .map-box-col {
+      background: #FFFFFF;
+      border-color: #D97706;
+    }
+
+    [data-theme="light"] .map-header-bar {
+      background: #F8FAFC;
+      color: #1E293B;
+      border-bottom-color: #E2E8F0;
+    }
+
+    [data-theme="light"] .map-iframe-wrap iframe {
+      filter: none;
+    }
+
+    [data-theme="light"] .site-footer {
+      background: #F1F5F9;
+      border-top-color: #E2E8F0;
+      color: #475569;
+    }
+
+    [data-theme="light"] .footer-brand p {
+      color: #334155;
+    }
+
+    [data-theme="light"] .mobile-drawer {
+      background: #FFFFFF;
+      border-left-color: #D97706;
+    }
+
+    [data-theme="light"] .drawer-header {
+      border-bottom-color: #E2E8F0;
+    }
+
+    [data-theme="light"] .drawer-link {
+      color: #0F172A;
+    }
+
+    [data-theme="light"] .drawer-link:hover {
+      background: #FFFBEB;
+      color: #D97706;
+    }
+
+    [data-theme="light"] .mobile-bottom-bar {
+      background: rgba(255, 255, 255, 0.96);
+      border-top-color: #E2E8F0;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    /* ==========================================================================
+       LIGHT MODE — COMPREHENSIVE TEXT & BACKGROUND READABILITY FIXES
+       Overrides all hardcoded dark navy rgba() backgrounds and white/neon text
+       that were built for dark mode but break readability in light mode.
+       ========================================================================== */
+
+    /* Buttons */
+    [data-theme="light"] .btn-secondary {
+      background: #FFFFFF;
+      color: #1E293B;
+      border-color: #CBD5E1;
+    }
+
+    [data-theme="light"] .btn-secondary:hover {
+      background: #F8FAFC;
+      color: #D97706;
+      border-color: #D97706;
+    }
+
+    [data-theme="light"] .mobile-toggle {
+      background: #F1F5F9;
+      color: #D97706;
+      border-color: #D97706;
+    }
+
+    [data-theme="light"] .mobile-toggle:hover,
+    [data-theme="light"] .mobile-toggle:active {
+      background: #D97706;
+      color: #FFFFFF;
+    }
+
+    /* Mobile nav drawer links */
+    [data-theme="light"] .mobile-nav-item a {
+      background: #F8FAFC;
+      color: #1E293B;
+      border-color: #E2E8F0;
+    }
+
+    [data-theme="light"] .mobile-nav-item a:hover,
+    [data-theme="light"] .mobile-nav-item a.active {
+      background: #FEF3C7;
+      color: #D97706;
+      border-color: #D97706;
+    }
+
+    /* ---- Fleet card: Rate boxes ---- */
+    [data-theme="light"] .fleet-rates-row {
+      background: #F1F5F9;
+      border-color: #E2E8F0;
+    }
+
+    [data-theme="light"] .rate-box-val {
+      color: #0F172A;
+    }
+
+    [data-theme="light"] .rate-box-val.ac-val {
+      color: #047857;
+    }
+
+    [data-theme="light"] .rate-box-label {
+      color: #64748B;
+    }
+
+    [data-theme="light"] .fleet-specs-strip {
+      color: #334155;
+    }
+
+    /* ---- Tariff table / rate chips ---- */
+    [data-theme="light"] .vehicle-name {
+      color: #0F172A;
+    }
+
+    [data-theme="light"] .rate-chip-nonac {
+      background: #F1F5F9;
+      color: #1E293B;
+      border-color: #CBD5E1;
+    }
+
+    [data-theme="light"] .rate-chip-ac {
+      background: rgba(5, 150, 105, 0.1);
+      color: #047857;
+      border-color: rgba(5, 150, 105, 0.4);
+    }
+
+    [data-theme="light"] .signage-table th {
+      background: #F1F5F9;
+      color: #B45309;
+      border-bottom-color: #E2E8F0;
+    }
+
+    [data-theme="light"] .signage-table td {
+      color: #1E293B;
+      border-bottom-color: #E2E8F0;
+    }
+
+    [data-theme="light"] .signage-table tr:hover td {
+      background: #FFFBEB;
+    }
+
+    [data-theme="light"] .signboard-footer-note {
+      background: #F8FAFC;
+      border-top-color: #E2E8F0;
+      color: #475569;
+    }
+
+    /* ---- Hero: Route visualizer card ---- */
+    [data-theme="light"] .route-visualizer-card {
+      background: linear-gradient(165deg, #FFFFFF 0%, #F8FAFC 100%);
+      box-shadow: 0 15px 40px rgba(15, 23, 42, 0.1), 0 0 20px rgba(217, 119, 6, 0.08);
+    }
+
+    [data-theme="light"] .route-tabs {
+      background: #F1F5F9;
+      border-color: #E2E8F0;
+    }
+
+    [data-theme="light"] .route-tab-btn {
+      color: #475569;
+    }
+
+    [data-theme="light"] .route-tab-btn.active {
+      background: #D97706;
+      color: #FFFFFF;
+    }
+
+    [data-theme="light"] .step-info {
+      background: #F8FAFC;
+      border-color: #E2E8F0;
+    }
+
+    [data-theme="light"] .step-info:hover {
+      background: #FEF3C7;
+      border-color: #D97706;
+    }
+
+    [data-theme="light"] .step-city {
+      color: #0F172A;
+    }
+
+    [data-theme="light"] .step-bullet {
+      background: #FFFFFF;
+    }
+
+    [data-theme="light"] .live-route-indicator {
+      background: rgba(5, 150, 105, 0.12);
+      color: #047857;
+      border-color: #059669;
+    }
+
+    /* ---- Fare Estimator ---- */
+    [data-theme="light"] .calc-result-col {
+      background: #FFFBEB;
+      border-color: #D97706;
+    }
+
+    [data-theme="light"] .calc-label {
+      color: #334155;
+    }
+
+    /* ---- Statistics & Proprietor Section ---- */
+    [data-theme="light"] .stat-box {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="light"] .stat-num {
+      color: #D97706;
+      text-shadow: none;
+    }
+
+    [data-theme="light"] .stat-label {
+      color: #0F172A;
+    }
+
+    [data-theme="light"] .proprietor-card {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="light"] .proprietor-info h4 {
+      color: #0F172A;
+    }
+
+    [data-theme="light"] .proprietor-info p {
+      color: #B45309 !important;
+    }
+
+    [data-theme="light"] .proprietor-info span {
+      color: #475569 !important;
+    }
+
+    [data-theme="light"] .about-story p {
+      color: #334155;
+    }
+
+    /* ---- Contact Cards Section ---- */
+    [data-theme="light"] .contact-card-item {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="light"] .contact-card-item:hover {
+      border-color: #D97706;
+    }
+
+    [data-theme="light"] .contact-card-body h4 {
+      color: #0F172A;
+    }
+
+    [data-theme="light"] .contact-card-body p {
+      color: #334155;
+    }
+
+    [data-theme="light"] .contact-card-icon {
+      background: rgba(217, 119, 6, 0.12);
+      border-color: #D97706;
+      color: #B45309;
+    }
+
+    [data-theme="light"] .phone-badge-btn {
+      background: rgba(217, 119, 6, 0.1);
+      border-color: #D97706;
+      color: #B45309;
+    }
+
+    [data-theme="light"] .phone-badge-btn:hover {
+      background: #D97706;
+      color: #FFFFFF;
+    }
+
+    /* ---- Booking Form & Options ---- */
+    [data-theme="light"] .booking-top-notice {
+      background: rgba(5, 150, 105, 0.08);
+      border-color: #059669;
+      color: #166534;
+    }
+
+    [data-theme="light"] .booking-top-notice strong {
+      color: #047857;
+    }
+
+    [data-theme="light"] .booking-top-notice i {
+      color: #059669;
+    }
+
+    [data-theme="light"] .form-label {
+      color: #1E293B;
+    }
+
+    [data-theme="light"] .v-radio-title {
+      color: #0F172A;
+    }
+
+    [data-theme="light"] .v-radio-rate {
+      color: #B45309;
+    }
+
+    [data-theme="light"] .ac-toggle-content {
+      background: #F8FAFC;
+      border-color: #CBD5E1;
+      color: #475569;
+    }
+
+    [data-theme="light"] .ac-toggle-card input:checked + .ac-toggle-content {
+      background: #DCFCE7;
+      border-color: #059669;
+      color: #047857;
+      box-shadow: 0 0 15px rgba(5, 150, 105, 0.15);
+    }
+
+    /* ---- Mobile Tariff Cards ---- */
+    [data-theme="light"] .tariff-m-name {
+      color: #0F172A;
+    }
+
+    [data-theme="light"] .tariff-m-subtitle {
+      color: #64748B;
+    }
+
+    [data-theme="light"] .tariff-m-specs span {
+      color: #334155;
+    }
+
+    [data-theme="light"] .tariff-rate-chip.nonac {
+      background: #F0FDF4;
+      border-color: #86EFAC;
+    }
+
+    [data-theme="light"] .tariff-rate-chip.nonac .rate-val {
+      color: #047857;
+    }
+
+    [data-theme="light"] .tariff-rate-chip.ac {
+      background: #FFFBEB;
+      border-color: #FDE68A;
+    }
+
+    [data-theme="light"] .tariff-rate-chip.ac .rate-val {
+      color: #B45309;
+    }
+
+    [data-theme="light"] .tariff-rate-chip .rate-type,
+    [data-theme="light"] .tariff-rate-chip .unit {
+      color: #64748B;
+    }
+
+    [data-theme="light"] .tariff-m-badge {
+      background: rgba(15, 23, 42, 0.7);
+      color: #FFFFFF;
+    }
+
+    /* ---- Services Section ---- */
+    [data-theme="light"] .service-icon-box {
+      background: linear-gradient(135deg, rgba(217, 119, 6, 0.12) 0%, #FFFBEB 100%);
+      border-color: #D97706;
+      color: #B45309;
+      box-shadow: 0 0 15px rgba(217, 119, 6, 0.15);
+    }
+
+    [data-theme="light"] .service-title {
+      color: #0F172A;
+    }
+
+    [data-theme="light"] .service-desc {
+      color: #475569;
+    }
+
+    [data-theme="light"] .service-num {
+      color: rgba(15, 23, 42, 0.08);
+    }
+
+    [data-theme="light"] .service-features-list {
+      border-top-color: #E2E8F0;
+    }
+
+    [data-theme="light"] .service-features-list li {
+      color: #334155;
+    }
+
+    /* ---- Hero & Route Visualizer Details ---- */
+    [data-theme="light"] .hero-section {
+      background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.35) 45%, rgba(248, 250, 252, 0.88) 100%), url('temple-hero-bg.jpg');
+    }
+
+    [data-theme="light"] .hero-content {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(217, 119, 6, 0.28);
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.1), 0 0 25px rgba(217, 119, 6, 0.08);
+    }
+
+    [data-theme="light"] .hero-logo-badge {
+      background: #FFFFFF;
+      border-color: #D97706;
+      box-shadow: 0 0 24px rgba(217, 119, 6, 0.35), 0 8px 20px rgba(15, 23, 42, 0.12);
+    }
+
+    [data-theme="light"] .hero-road-bg {
+      background: linear-gradient(to top, var(--navy-950) 0%, transparent 100%);
+      opacity: 0.95;
+    }
+
+    [data-theme="light"] .hero-trust-strip {
+      border-top-color: #E2E8F0;
+    }
+
+    [data-theme="light"] .trust-title {
+      color: #0F172A;
+    }
+
+    [data-theme="light"] .trust-sub {
+      color: #475569;
+    }
+
+    [data-theme="light"] .route-card-title {
+      color: #B45309;
+    }
+
+    [data-theme="light"] .route-card-header {
+      border-bottom-color: #E2E8F0;
+    }
+
+    [data-theme="light"] .route-stats-footer {
+      border-top-color: #CBD5E1;
+    }
+
+    [data-theme="light"] .route-stat-item {
+      color: #334155;
+    }
+
+    [data-theme="light"] .route-stat-item strong {
+      color: #B45309;
+    }
+
+    [data-theme="light"] .step-badge {
+      background: #DCFCE7 !important;
+      color: #047857 !important;
+      border-color: #059669 !important;
+    }
+
+    /* ---- Mobile Bottom Action Bar ---- */
+    [data-theme="light"] .mobile-bar-call {
+      background: #F0FDF4;
+      border-color: #86EFAC;
+      color: #047857;
+    }
+
+    [data-theme="light"] .mobile-bar-call:active {
+      background: #059669;
+      color: #FFFFFF;
+    }
+
+    [data-theme="light"] .mobile-bar-wa {
+      background: #DCFCE7;
+      border-color: #86EFAC;
+      color: #15803D;
+    }
+
+    [data-theme="light"] .mobile-bar-book {
+      background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+      border-color: #B45309;
+      color: #FFFFFF;
+    }
+
+    /* ---- Headings, Labels & Global Elements ---- */
+    [data-theme="light"] .section-title {
+      color: #0F172A;
+    }
+
+    [data-theme="light"] .section-subtitle {
+      color: #475569;
+    }
+
+    [data-theme="light"] .brand-name {
+      color: #0F172A;
+    }
+
+    [data-theme="light"] .brand-tagline-sub {
+      color: #64748B;
+    }
+
+    [data-theme="light"] .calc-inputs-col h3 {
+      color: #B45309;
+    }
+
+    [data-theme="light"] .calc-inputs-col p {
+      color: #475569;
+    }
+
+    [data-theme="light"] .calc-total-fare {
+      color: #B45309 !important;
+    }
+
+    [data-theme="light"] .calc-details-note {
+      color: #64748B;
+    }
+
+    [data-theme="light"] .calc-result-label {
+      color: #475569;
+    }
+
+    [data-theme="light"] .footer-col h4 {
+      color: #0F172A;
+    }
+
+    [data-theme="light"] .footer-links a {
+      color: #334155;
+    }
+
+    [data-theme="light"] .footer-links a:hover {
+      color: #D97706;
+    }
+
+    [data-theme="light"] .footer-tagline-quote {
+      color: #B45309;
+      border-left-color: #D97706;
+    }
+
+    [data-theme="light"] .footer-bottom {
+      border-top-color: #CBD5E1;
+      color: #64748B;
+    }
+
     /* Mobile Drawer */
     .mobile-drawer {
       position: fixed;
@@ -658,9 +1645,19 @@
        ========================================================================== */
     .hero-section {
       position: relative;
-      padding: 4rem 0 5rem;
+      padding: 5rem 0 6rem;
       overflow: hidden;
-      background: linear-gradient(180deg, var(--navy-900) 0%, var(--navy-950) 100%);
+      background-image: linear-gradient(90deg, rgba(8, 13, 26, 0.12) 0%, rgba(8, 13, 26, 0.38) 45%, rgba(8, 13, 26, 0.88) 100%), url('temple-hero-bg.jpg');
+      background-size: cover;
+      background-position: left 25%;
+      background-repeat: no-repeat;
+    }
+
+    [data-theme="dark"] .hero-section {
+      background-image: linear-gradient(90deg, rgba(8, 13, 26, 0.12) 0%, rgba(8, 13, 26, 0.38) 45%, rgba(8, 13, 26, 0.88) 100%), url('temple-hero-bg.jpg');
+      background-size: cover;
+      background-position: left 25%;
+      background-repeat: no-repeat;
     }
 
     /* Ambient Highway Road & Headlight Streaks */
@@ -669,23 +1666,61 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 180px;
-      background: linear-gradient(to top, rgba(18, 33, 61, 0.6), transparent);
+      height: 140px;
+      background: linear-gradient(to top, var(--navy-950) 0%, transparent 100%);
       pointer-events: none;
-      opacity: 0.7;
+      opacity: 0.9;
     }
 
     .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 3rem;
+      display: flex;
+      justify-content: flex-end;
       align-items: center;
       position: relative;
       z-index: 2;
+      min-height: 520px;
     }
 
     .hero-content {
-      max-width: 650px;
+      max-width: 580px;
+      margin-left: auto;
+      background: rgba(8, 13, 26, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 2.5rem 2.4rem;
+      border-radius: 20px;
+      border: 1px solid rgba(244, 169, 59, 0.3);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 30px rgba(244, 169, 59, 0.12);
+    }
+
+    .hero-logo-badge {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(244, 169, 59, 0.45), 0 8px 24px rgba(0, 0, 0, 0.45);
+      position: relative;
+      margin-bottom: 1.1rem;
+      background: #0B1325;
+      padding: 2px;
+      border: 2px solid rgba(244, 169, 59, 0.75);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-logo-badge:hover {
+      transform: scale(1.08) rotate(2deg);
+      box-shadow: 0 0 40px rgba(244, 169, 59, 0.7), 0 12px 30px rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-logo-badge img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
     }
 
     .hero-tagline-badge {
@@ -1848,31 +2883,61 @@
       box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
     }
 
+    .booking-actions-row {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    @media (max-width: 640px) {
+      .booking-actions-row {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+    }
+
     .booking-submit-btn {
       width: 100%;
-      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-      color: #FFFFFF;
       font-family: var(--font-display);
-      font-size: 1.4rem;
+      font-size: 1.25rem;
       font-weight: 800;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      padding: 1.1rem;
+      padding: 1.05rem 1.2rem;
       border-radius: 8px;
-      border: 1px solid #34D399;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.75rem;
-      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+      gap: 0.65rem;
       transition: var(--transition-smooth);
     }
 
-    .booking-submit-btn:hover {
+    .btn-booking-wa {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #FFFFFF;
+      border: 1px solid #34D399;
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+    }
+
+    .btn-booking-wa:hover {
       background: linear-gradient(135deg, #2BF074 0%, #15A392 100%);
       transform: translateY(-2px);
       box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+    }
+
+    .btn-booking-mail {
+      background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+      color: #FFFFFF;
+      border: 1px solid #F59E0B;
+      box-shadow: 0 6px 25px rgba(217, 119, 6, 0.35);
+    }
+
+    .btn-booking-mail:hover {
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(217, 119, 6, 0.55);
     }
 
     /* ==========================================================================
@@ -1943,6 +3008,61 @@
       color: var(--amber-400) !important;
       font-weight: 600;
       margin: 0 !important;
+    }
+
+    .about-brand-seal {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      background: linear-gradient(135deg, rgba(18, 33, 61, 0.7) 0%, rgba(11, 19, 37, 0.85) 100%);
+      border: 1px solid rgba(244, 169, 59, 0.35);
+      border-radius: 14px;
+      padding: 1.1rem 1.4rem;
+      margin-top: 1.2rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    [data-theme="light"] .about-brand-seal {
+      background: #FFFFFF;
+      border-color: rgba(217, 119, 6, 0.3);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+
+    .about-brand-seal .seal-logo-wrap {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      box-shadow: 0 0 20px rgba(244, 169, 59, 0.4);
+      border: 1.5px solid rgba(244, 169, 59, 0.7);
+      background: #0B1325;
+      padding: 2px;
+      overflow: hidden;
+    }
+
+    .about-brand-seal .seal-logo-wrap img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-brand-seal .seal-meta h4 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--amber-500);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.2rem;
+    }
+
+    .about-brand-seal .seal-meta p {
+      font-size: 0.88rem !important;
+      color: var(--text-secondary) !important;
+      margin: 0 !important;
+      line-height: 1.4;
     }
 
     .stats-card-grid {
@@ -2620,8 +3740,7 @@
     /* Breakpoint 1024px */
     @media (max-width: 1024px) {
       .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
+        justify-content: flex-end;
       }
       .services-grid {
         grid-template-columns: 1fr;
@@ -3010,9 +4129,26 @@
     @media (max-width: 860px) {
       .hero-section {
         padding: 2.5rem 0 3.5rem;
+        background-position: center top;
+        background-image: linear-gradient(180deg, rgba(8, 13, 26, 0.35) 0%, rgba(8, 13, 26, 0.92) 55%), url('temple-hero-bg.jpg');
+      }
+      [data-theme="light"] .hero-section {
+        background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(248, 250, 252, 0.95) 55%), url('temple-hero-bg.jpg');
+      }
+      .hero-grid {
+        justify-content: center;
+        min-height: auto;
       }
       .hero-content {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 2rem 1.4rem;
         text-align: center;
+      }
+      .hero-logo-badge {
+        width: 76px;
+        height: 76px;
+        margin: 0 auto 1rem;
       }
       .hero-tagline-badge {
         justify-content: center;
@@ -3291,78 +4427,97 @@
 <body>
   <div class="site-wrapper">
 
-  <!-- 1. TOP BAR -->
-  <div class="top-bar">
-    <div class="container">
-      <div class="top-bar-inner">
-        <div class="top-bar-left">
-          <span class="top-pill"><i class="fa-solid fa-clock"></i> 24x7 Cab Service & Airport Duty</span>
-          <span class="top-pill"><i class="fa-solid fa-location-dot"></i> Balaji Nagar, Near Monda Naka, Chh. Sambhajinagar</span>
-        </div>
-        <div class="top-bar-right">
-          <span>Call 24/7:</span>
-          <a href="tel:9860271770" class="top-phone-link" id="top-phone-1"><i class="fa-solid fa-phone"></i> 9860271770</a>
-          <span>|</span>
-          <a href="tel:7410788958" class="top-phone-link" id="top-phone-2"><i class="fa-solid fa-phone"></i> 7410788958</a>
+  <!-- FIXED TOP NAVIGATION WRAPPER (Stationary at top while content scrolls upward) -->
+  <div class="fixed-nav-wrapper" id="fixed-nav-wrapper">
+    <!-- 1. TOP BAR -->
+    <div class="top-bar">
+      <div class="container">
+        <div class="top-bar-inner">
+          <div class="top-bar-left">
+            <span class="top-pill"><i class="fa-solid fa-clock"></i> 24x7 Cab Service & Airport Duty</span>
+            <span class="top-pill"><i class="fa-solid fa-location-dot"></i> Balaji Nagar, Near Monda Naka, Chh. Sambhajinagar</span>
+          </div>
+          <div class="top-bar-right">
+            <span>Call 24/7:</span>
+            <a href="tel:9860271770" class="top-phone-link" id="top-phone-1"><i class="fa-solid fa-phone"></i> 9860271770</a>
+            <span>|</span>
+            <a href="tel:7410788958" class="top-phone-link" id="top-phone-2"><i class="fa-solid fa-phone"></i> 7410788958</a>
+            <span>|</span>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shreerenukatravels99@shreenukatravels.in" target="_blank" rel="noopener noreferrer" class="top-phone-link" id="top-email-link" title="Email Shree Renuka Travels on Gmail"><i class="fa-solid fa-envelope"></i> Gmail</a>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- 2. NAVBAR -->
+    <header class="site-header" id="site-header">
+      <div class="nav-container">
+        <!-- Brand Logo -->
+        <a href="#home" class="brand-logo" id="brand-logo-link">
+          <div class="logo-badge">
+            <img src="logo.png" alt="Shree Renuka Travels Logo" width="48" height="48" />
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Shree Renuka <span>Travels</span></span>
+            <span class="brand-tagline-sub">Safe & Secure Journey Since 2019</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav Menu -->
+        <ul class="nav-menu" id="desktop-menu">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#fleet" class="nav-link">Our Fleet</a></li>
+          <li><a href="#rates" class="nav-link">Tariff Card</a></li>
+          <li><a href="#estimator" class="nav-link">Fare Estimator</a></li>
+          <li><a href="#booking" class="nav-link">Book Cab</a></li>
+          <li><a href="#about" class="nav-link">About Us</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- Desktop Header Actions -->
+        <div class="nav-actions">
+          <a href="tel:9860271770" class="btn-highway btn-call" id="nav-call-btn" aria-label="Call 9860271770">
+            <i class="fa-solid fa-phone-volume"></i> <span class="nav-call-full">9860271770</span><span class="nav-call-short" style="display: none;">Call</span>
+          </a>
+          <a href="#booking" class="btn-highway btn-primary" id="nav-book-btn">
+            Book Now
+          </a>
+          <!-- Theme Toggle Button (Light / Dark) on the Right Side -->
+          <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle light and dark theme" title="Toggle theme">
+            <i class="fa-solid fa-moon" id="theme-toggle-icon"></i>
+          </button>
+          <!-- Mobile Toggle Button -->
+          <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle Navigation Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
   </div>
-
-  <!-- 2. STICKY HEADER & NAVBAR -->
-  <header class="site-header" id="site-header">
-    <div class="nav-container">
-      <!-- Brand Logo -->
-      <a href="#home" class="brand-logo" id="brand-logo-link">
-        <div class="logo-badge">
-          <i class="fa-solid fa-car-side"></i>
-        </div>
-        <div class="brand-text">
-          <span class="brand-name">Shree Renuka <span>Travels</span></span>
-          <span class="brand-tagline-sub">Safe & Secure Journey Since 2019</span>
-        </div>
-      </a>
-
-      <!-- Desktop Nav Menu -->
-      <ul class="nav-menu" id="desktop-menu">
-        <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="#fleet" class="nav-link">Our Fleet</a></li>
-        <li><a href="#rates" class="nav-link">Tariff Card</a></li>
-        <li><a href="#estimator" class="nav-link">Fare Estimator</a></li>
-        <li><a href="#booking" class="nav-link">Book Cab</a></li>
-        <li><a href="#about" class="nav-link">About Us</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-
-      <!-- Desktop Header Actions -->
-      <div class="nav-actions">
-        <a href="tel:9860271770" class="btn-highway btn-call" id="nav-call-btn" aria-label="Call 9860271770">
-          <i class="fa-solid fa-phone-volume"></i> <span class="nav-call-full">9860271770</span><span class="nav-call-short" style="display: none;">Call</span>
-        </a>
-        <a href="#booking" class="btn-highway btn-primary" id="nav-book-btn">
-          Book Now
-        </a>
-        <!-- Mobile Toggle Button -->
-        <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle Navigation Menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-      </div>
-    </div>
-  </header>
 
   <!-- MOBILE DRAWER & OVERLAY -->
   <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
   <nav class="mobile-drawer" id="mobile-drawer">
     <div>
       <div class="drawer-header">
-        <div class="brand-text">
-          <span class="brand-name" style="font-size: 1.3rem;">Shree Renuka <span>Travels</span></span>
-          <span class="brand-tagline-sub">Prop. Narendra R. Shewale</span>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="logo-badge" style="width: 44px; height: 44px;">
+            <img src="logo.png" alt="Shree Renuka Travels Logo" width="44" height="44" />
+          </div>
+          <div class="brand-text">
+            <span class="brand-name" style="font-size: 1.3rem;">Shree Renuka <span>Travels</span></span>
+            <span class="brand-tagline-sub">Prop. Narendra R. Shewale</span>
+          </div>
         </div>
-        <button class="drawer-close" id="drawer-close-btn" aria-label="Close Menu">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <button class="theme-toggle-btn" id="drawer-theme-toggle-btn" aria-label="Toggle light and dark theme" title="Toggle theme">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button class="drawer-close" id="drawer-close-btn" aria-label="Close Menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
       </div>
 
       <ul class="mobile-nav-links">
@@ -3384,6 +4539,9 @@
       <a href="https://wa.me/919860271770?text=Hello%20Shree%20Renuka%20Travels,%20I%20want%20to%20inquire%20about%20a%20cab%20booking." target="_blank" class="btn-highway btn-primary" style="width: 100%; text-align: center;">
         <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
       </a>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shreerenukatravels99@shreenukatravels.in" target="_blank" rel="noopener noreferrer" class="btn-highway btn-outline" style="width: 100%; text-align: center; border-color: var(--amber-500); color: var(--amber-500);">
+        <i class="fa-solid fa-envelope"></i> Email Us (Gmail)
+      </a>
     </div>
   </nav>
 
@@ -3393,18 +4551,19 @@
     <div class="container">
       <div class="hero-grid">
         
-        <!-- Left Hero Content -->
+        <!-- Hero Content -->
         <div class="hero-content">
-          <div class="hero-tagline-badge">
-            <i class="fa-solid fa-shield-heart"></i> Since 2019 – Safe & Secure Journey
+          <div class="hero-logo-badge">
+            <img src="logo.png" alt="Shree Renuka Travels Official Logo" width="90" height="90" />
           </div>
           <h1 class="hero-heading">
-            Chh. Sambhajinagar to <br/>
-            <span class="amber-glow">Pune & Mumbai</span> <br/>
-            Cab Service
+            Shree Renuka <br/><span class="amber-glow">Travels</span>
           </h1>
+          <div class="hero-tagline-badge">
+            <i class="fa-solid fa-shield-heart"></i> Since 2019 – Safe &amp; Secure Journey
+          </div>
           <p class="hero-lead">
-            Experience smooth highway rides, prompt doorstep pickup, and professional drivers with <strong>Shree Renuka Travels</strong>. Daily direct service, one-way drops, and airport transfers at transparent per-km rates starting at just <strong>₹11/km</strong>.
+            Experience smooth highway rides, prompt doorstep pickup, and professional drivers with <strong>Shree Renuka Travels</strong>. 24/7 direct cab service across <strong>all over Maharashtra</strong>, outstation round trips, one-way drops, pilgrimage tours, and airport transfers at transparent per-km rates starting at just <strong>₹11/km</strong>.
           </p>
 
           <div class="hero-ctas">
@@ -3442,156 +4601,6 @@
           </div>
         </div>
 
-        <!-- Right Hero: Interactive Night Highway Route Graphic -->
-        <div class="hero-graphic">
-          <div class="route-visualizer-card">
-            
-            <div class="route-card-header">
-              <div class="route-card-title">
-                <i class="fa-solid fa-road"></i> Highway Corridor
-              </div>
-              <div class="live-route-indicator">
-                <div class="pulse-dot"></div> Express Routes
-              </div>
-            </div>
-
-            <!-- Route Selector Tabs -->
-            <div class="route-tabs">
-              <button class="route-tab-btn active" onclick="switchRoute('pune')" id="tab-pune">
-                <i class="fa-solid fa-location-arrow"></i> To Pune (~235 KM)
-              </button>
-              <button class="route-tab-btn" onclick="switchRoute('mumbai')" id="tab-mumbai">
-                <i class="fa-solid fa-location-arrow"></i> To Mumbai (~350 KM)
-              </button>
-            </div>
-
-            <!-- Route Track Visualizer Pane: Pune -->
-            <div class="route-display-pane active" id="pane-pune">
-              <div class="route-track-container">
-                <ul class="route-steps-list">
-                  
-                  <li class="route-step-node">
-                    <div class="step-bullet"><i class="fa-solid fa-play"></i></div>
-                    <div class="step-info">
-                      <div>
-                        <div class="step-city">Chh. Sambhajinagar</div>
-                        <div class="step-detail">Monda Naka / Home Pickup</div>
-                      </div>
-                      <span class="step-badge">Origin</span>
-                    </div>
-                  </li>
-
-                  <li class="route-step-node">
-                    <div class="step-bullet"><i class="fa-solid fa-gas-pump"></i></div>
-                    <div class="step-info">
-                      <div>
-                        <div class="step-city">Ahmednagar / Shirur</div>
-                        <div class="step-detail">Highway Corridor / Quick Halt</div>
-                      </div>
-                      <span class="step-badge">Midway Point</span>
-                    </div>
-                  </li>
-
-                  <li class="route-step-node">
-                    <div class="step-bullet"><i class="fa-solid fa-plane-departure"></i></div>
-                    <div class="step-info">
-                      <div>
-                        <div class="step-city">Pune Airport (PNQ) / Viman Nagar</div>
-                        <div class="step-detail">Direct Terminal Drop</div>
-                      </div>
-                      <span class="step-badge">Airport Transit</span>
-                    </div>
-                  </li>
-
-                  <li class="route-step-node final">
-                    <div class="step-bullet"><i class="fa-solid fa-location-dot"></i></div>
-                    <div class="step-info">
-                      <div>
-                        <div class="step-city">Pune City (Any Location)</div>
-                        <div class="step-detail">Hinjawadi / Swargate / Railway Stn</div>
-                      </div>
-                      <span class="step-badge" style="background: rgba(16, 185, 129, 0.2); color: #34D399; border-color: #10B981;">Destination</span>
-                    </div>
-                  </li>
-
-                </ul>
-              </div>
-
-              <div class="route-stats-footer">
-                <div class="route-stat-item">
-                  <i class="fa-solid fa-gauge-high"></i> Approx Time: <strong>4.5 - 5 Hrs</strong>
-                </div>
-                <div class="route-stat-item">
-                  <i class="fa-solid fa-bolt"></i> Sedan starting: <strong>₹11/km</strong>
-                </div>
-              </div>
-            </div>
-
-            <!-- Route Track Visualizer Pane: Mumbai -->
-            <div class="route-display-pane" id="pane-mumbai">
-              <div class="route-track-container">
-                <ul class="route-steps-list">
-                  
-                  <li class="route-step-node">
-                    <div class="step-bullet"><i class="fa-solid fa-play"></i></div>
-                    <div class="step-info">
-                      <div>
-                        <div class="step-city">Chh. Sambhajinagar</div>
-                        <div class="step-detail">Balaji Nagar / City Pickup</div>
-                      </div>
-                      <span class="step-badge">Origin</span>
-                    </div>
-                  </li>
-
-                  <li class="route-step-node">
-                    <div class="step-bullet"><i class="fa-solid fa-road"></i></div>
-                    <div class="step-info">
-                      <div>
-                        <div class="step-city">Samruddhi Mahamarg / Nashik Phata</div>
-                        <div class="step-detail">High Speed Expressway Ride</div>
-                      </div>
-                      <span class="step-badge">Express Route</span>
-                    </div>
-                  </li>
-
-                  <li class="route-step-node">
-                    <div class="step-bullet"><i class="fa-solid fa-building"></i></div>
-                    <div class="step-info">
-                      <div>
-                        <div class="step-city">Thane / Navi Mumbai</div>
-                        <div class="step-detail">Vashi / Belapur / Airoli</div>
-                      </div>
-                      <span class="step-badge">MMR Entry</span>
-                    </div>
-                  </li>
-
-                  <li class="route-step-node final">
-                    <div class="step-bullet"><i class="fa-solid fa-plane"></i></div>
-                    <div class="step-info">
-                      <div>
-                        <div class="step-city">Mumbai CSMI Airport / Dadar / BKC</div>
-                        <div class="step-detail">T1 / T2 Airport Drops & City Drops</div>
-                      </div>
-                      <span class="step-badge" style="background: rgba(16, 185, 129, 0.2); color: #34D399; border-color: #10B981;">Destination</span>
-                    </div>
-                  </li>
-
-                </ul>
-              </div>
-
-              <div class="route-stats-footer">
-                <div class="route-stat-item">
-                  <i class="fa-solid fa-gauge-high"></i> Approx Time: <strong>6.5 - 7.5 Hrs</strong>
-                </div>
-                <div class="route-stat-item">
-                  <i class="fa-solid fa-bolt"></i> Sedan starting: <strong>₹11/km</strong>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
@@ -3615,18 +4624,18 @@
           <div class="service-icon-box">
             <i class="fa-solid fa-route"></i>
           </div>
-          <h3 class="service-title">Daily Service: Sambhajinagar to Pune / Mumbai</h3>
+          <h3 class="service-title">All Maharashtra Intercity & Outstation Cabs</h3>
           <p class="service-desc">
-            Scheduled round trips and daily travel between Chhatrapati Sambhajinagar, Pune, and Mumbai. Enjoy comfortable highway journeys with timely departures, minimal halts, and experienced night drivers.
+            Reliable round trips and daily cab travel connecting Chhatrapati Sambhajinagar to every destination across Maharashtra — including Pune, Mumbai, Nashik, Shirdi, Kolhapur, Nagpur, Solapur & beyond. Enjoy smooth highway journeys with punctual doorstep pickup and experienced drivers.
           </p>
           <ul class="service-features-list">
-            <li><i class="fa-solid fa-circle-check"></i> Daily departures morning & night</li>
+            <li><i class="fa-solid fa-circle-check"></i> Available 24/7 across all Maharashtra routes</li>
             <li><i class="fa-solid fa-circle-check"></i> Experienced highway chauffeurs</li>
-            <li><i class="fa-solid fa-circle-check"></i> Direct drop at your required address</li>
+            <li><i class="fa-solid fa-circle-check"></i> Direct doorstep pickup & drop anywhere</li>
             <li><i class="fa-solid fa-circle-check"></i> Round-trip return discounts</li>
           </ul>
-          <a href="#booking" class="btn-highway btn-secondary service-btn" onclick="selectServiceInForm('Daily Service (Sambhajinagar to Pune/Mumbai)')">
-            Book Daily Cab
+          <a href="#booking" class="btn-highway btn-secondary service-btn" onclick="selectServiceInForm('All Maharashtra Intercity & Outstation Cabs')">
+            Book Outstation Cab
           </a>
         </div>
 
@@ -3690,18 +4699,18 @@
       <!-- Fleet Photo Cards Grid (3 distinct commercial vehicles) -->
       <div class="fleet-gallery-grid">
 
-        <!-- Car 1: Sedan (Toyota Etios / Dzire) -->
+        <!-- Car 1: Sedan (Toyota Etios - MH 20 EG 6210) -->
         <div class="fleet-photo-card">
-          <div class="fleet-img-wrap" onclick="openLightbox('sedan-etios.jpg', 'Sedan (Toyota Etios / Dzire) — Executive & Airport Duty Cab')">
-            <img src="sedan-etios.jpg" alt="Toyota Etios Sedan Cab - Shree Renuka Travels" loading="lazy" />
+          <div class="fleet-img-wrap" onclick="openLightbox('sedan-etios.jpg', 'Toyota Etios Sedan (MH 20 EG 6210) — Executive & Airport Duty Cab')">
+            <img src="sedan-etios.jpg" alt="Toyota Etios Sedan Cab MH20EG6210 - Shree Renuka Travels" loading="lazy" style="object-position: center 50%;" />
             <div class="fleet-img-overlay">
-              <span class="fleet-tag-pill" style="border-color: #F4A93B; color: #FFBE53;"><i class="fa-solid fa-car"></i> Sedan Class • 4 Seater</span>
+              <span class="fleet-tag-pill" style="border-color: #F4A93B; color: #FFBE53;"><i class="fa-solid fa-car"></i> MH 20 EG 6210 • Sedan Class</span>
             </div>
             <button class="zoom-hint-btn" title="View Full Photo"><i class="fa-solid fa-expand"></i></button>
           </div>
           <div class="fleet-card-body">
             <h3 class="fleet-card-title">Sedan (Toyota Etios)</h3>
-            <p class="fleet-card-desc">Ideal for small families, solo executive trips & prompt airport transfers. Highly economical with smooth ride quality.</p>
+            <p class="fleet-card-desc">Our verified commercial Sedan (MH 20 EG 6210) — ideal for small families, solo executive trips & prompt airport transfers. Highly economical with smooth ride quality.</p>
             <div class="fleet-rates-row">
               <div class="rate-box-sub">
                 <span class="rate-box-label">Non-AC</span>
@@ -3818,7 +4827,7 @@
             <thead>
               <tr>
                 <th>Vehicle Model & Class</th>
-                <th>Seating & Luggage</th>
+                <th>Seating Capacity</th>
                 <th>Non-AC Rate</th>
                 <th>AC Rate</th>
                 <th>Action</th>
@@ -3830,8 +4839,8 @@
               <tr>
                 <td>
                   <div class="vehicle-col">
-                    <div class="vehicle-thumb-box" onclick="openLightbox('sedan-etios.jpg', 'Sedan (Toyota Etios / Dzire)')">
-                      <img src="sedan-etios.jpg" alt="Toyota Etios Sedan" />
+                    <div class="vehicle-thumb-box" onclick="openLightbox('sedan-etios.jpg', 'Toyota Etios Sedan (MH 20 EG 6210)')">
+                      <img src="sedan-etios.jpg" alt="Toyota Etios Sedan MH20EG6210" />
                     </div>
                     <div class="vehicle-details">
                       <span class="vehicle-name">Sedan (Toyota Etios / Dzire)</span>
@@ -3840,8 +4849,7 @@
                   </div>
                 </td>
                 <td>
-                  <strong style="color: var(--text-white);">4 Passengers</strong><br />
-                  <span style="font-size: 0.8rem; color: var(--text-muted);"><i class="fa-solid fa-suitcase"></i> 2 Large Bags</span>
+                  <strong style="color: var(--text-white); font-size: 0.95rem;"><i class="fa-solid fa-users" style="color: var(--amber-500); margin-right: 6px;"></i>4 Passengers</strong>
                 </td>
                 <td>
                   <span class="rate-chip rate-chip-nonac">₹11 <span class="rate-unit">/ km</span></span>
@@ -3865,13 +4873,12 @@
                     </div>
                     <div class="vehicle-details">
                       <span class="vehicle-name">Ertiga / Toyota Rumion</span>
-                      <span class="vehicle-cap">Spacious MPV for family trips, outstation tours & airport luggage</span>
+                      <span class="vehicle-cap">Spacious MPV for family trips, outstation tours & group travel</span>
                     </div>
                   </div>
                 </td>
                 <td>
-                  <strong style="color: var(--text-white);">6 - 7 Passengers</strong><br />
-                  <span style="font-size: 0.8rem; color: var(--text-muted);"><i class="fa-solid fa-suitcase"></i> 3-4 Bags</span>
+                  <strong style="color: var(--text-white); font-size: 0.95rem;"><i class="fa-solid fa-users" style="color: var(--amber-500); margin-right: 6px;"></i>6 - 7 Passengers</strong>
                 </td>
                 <td>
                   <span class="rate-chip rate-chip-nonac">₹13 <span class="rate-unit">/ km</span></span>
@@ -3900,8 +4907,7 @@
                   </div>
                 </td>
                 <td>
-                  <strong style="color: var(--text-white);">6 - 7 Passengers</strong><br />
-                  <span style="font-size: 0.8rem; color: var(--text-muted);"><i class="fa-solid fa-suitcase"></i> 4 Large Bags</span>
+                  <strong style="color: var(--text-white); font-size: 0.95rem;"><i class="fa-solid fa-users" style="color: var(--amber-500); margin-right: 6px;"></i>6 - 7 Passengers</strong>
                 </td>
                 <td>
                   <span class="rate-chip rate-chip-nonac">₹15 <span class="rate-unit">/ km</span></span>
@@ -3926,16 +4932,15 @@
           <!-- Mobile Card 1: Sedan -->
           <div class="tariff-mobile-card">
             <div class="tariff-m-header">
-              <div class="tariff-m-thumb" onclick="openLightbox('sedan-etios.jpg', 'Sedan (Toyota Etios / Dzire)')">
-                <img src="sedan-etios.jpg" alt="Toyota Etios Sedan" />
+              <div class="tariff-m-thumb" onclick="openLightbox('sedan-etios.jpg', 'Toyota Etios Sedan (MH 20 EG 6210)')">
+                <img src="sedan-etios.jpg" alt="Toyota Etios Sedan MH20EG6210" />
                 <span class="tariff-m-badge"><i class="fa-solid fa-expand"></i> Tap Photo</span>
               </div>
               <div class="tariff-m-title-box">
                 <h3 class="tariff-m-name">Sedan (Toyota Etios)</h3>
                 <span class="tariff-m-subtitle">Comfortable for small families & airport transit</span>
                 <div class="tariff-m-specs">
-                  <span><i class="fa-solid fa-users"></i> 4 Seats</span>
-                  <span><i class="fa-solid fa-suitcase"></i> 2 Large Bags</span>
+                  <span><i class="fa-solid fa-users"></i> 4 Passengers Seating</span>
                 </div>
               </div>
             </div>
@@ -3965,8 +4970,7 @@
                 <h3 class="tariff-m-name">Ertiga / Rumion</h3>
                 <span class="tariff-m-subtitle">Spacious MPV for family trips & outstation tours</span>
                 <div class="tariff-m-specs">
-                  <span><i class="fa-solid fa-users"></i> 6 - 7 Seats</span>
-                  <span><i class="fa-solid fa-suitcase"></i> 3 - 4 Bags</span>
+                  <span><i class="fa-solid fa-users"></i> 6 - 7 Passengers Seating</span>
                 </div>
               </div>
             </div>
@@ -3996,8 +5000,7 @@
                 <h3 class="tariff-m-name">Kia Carens</h3>
                 <span class="tariff-m-subtitle">Luxury 6-7 Seater with plush recliner seats & dual AC</span>
                 <div class="tariff-m-specs">
-                  <span><i class="fa-solid fa-users"></i> 6 - 7 Seats</span>
-                  <span><i class="fa-solid fa-suitcase"></i> 4 Large Bags</span>
+                  <span><i class="fa-solid fa-users"></i> 6 - 7 Passengers Seating</span>
                 </div>
               </div>
             </div>
@@ -4061,6 +5064,9 @@
                 <option value="350">Sambhajinagar to Mumbai (~350 km)</option>
                 <option value="115">Sambhajinagar to Shirdi (~115 km)</option>
                 <option value="190">Sambhajinagar to Nashik (~190 km)</option>
+                <option value="310">Sambhajinagar to Solapur (~310 km)</option>
+                <option value="420">Sambhajinagar to Kolhapur (~420 km)</option>
+                <option value="480">Sambhajinagar to Nagpur (~480 km)</option>
                 <option value="470">Sambhajinagar to Pune Round Trip (~470 km)</option>
                 <option value="700">Sambhajinagar to Mumbai Round Trip (~700 km)</option>
                 <option value="custom">Custom KM (Enter Below)</option>
@@ -4095,16 +5101,16 @@
       <div class="section-header">
         <div class="badge-tag"><i class="fa-solid fa-bolt"></i> Fast Confirmation</div>
         <h2 class="section-title">Book Your <span>Cab Now</span></h2>
-        <p class="section-subtitle">Fill in your travel details below. Once submitted, it will instantly generate a formatted booking request and open WhatsApp directly with Narendra R. Shewale at <strong>9860271770</strong> for quick confirmation.</p>
+        <p class="section-subtitle">Fill in your travel details below. Submit via <strong>WhatsApp</strong> for instant confirmation, or send your request via <strong>Email</strong> if you prefer. Both go directly to proprietor Narendra R. Shewale.</p>
         <div class="highway-divider"></div>
       </div>
 
       <div class="booking-wrapper">
         
         <div class="booking-top-notice">
-          <i class="fa-brands fa-whatsapp"></i>
+          <img src="logo.png" alt="Shree Renuka Travels" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; flex-shrink: 0; box-shadow: 0 0 12px rgba(244,169,59,0.45); border: 1px solid rgba(244,169,59,0.6);" />
           <div>
-            <strong>Instant WhatsApp Booking:</strong> No registration required. Your trip request goes directly to the proprietor's phone for real-time driver allocation.
+            <strong>Book via WhatsApp or Email:</strong> No registration required. Your trip request goes directly to the proprietor for real-time driver allocation. Choose your preferred method below.
           </div>
         </div>
 
@@ -4137,10 +5143,11 @@
               <div class="input-icon-wrap">
                 <i class="fa-solid fa-route"></i>
                 <select id="book-service-type" class="form-control" required>
-                  <option value="Daily Service (Sambhajinagar to Pune/Mumbai)">Daily Service: Chh. Sambhajinagar to Pune / Mumbai</option>
-                  <option value="One-Way Drop Service">One-Way Drop Service</option>
+                  <option value="All Maharashtra Outstation Cab" selected>All Maharashtra Outstation &amp; Intercity Cab</option>
+                  <option value="Daily Intercity Service (Across Maharashtra)">Daily Intercity Service across Maharashtra (Pune, Mumbai, Nashik, Shirdi, Nagpur, etc.)</option>
+                  <option value="One-Way Drop Service">One-Way Drop Service (Anywhere in Maharashtra)</option>
                   <option value="Airport Duty (Pickup/Drop)">Airport Duty (Pickup / Drop)</option>
-                  <option value="Outstation Round Trip">Outstation Round Trip</option>
+                  <option value="Outstation Round Trip">Outstation Round Trip / Maharashtra Tour</option>
                   <option value="Local Hourly Rental">Local Hourly / City Duty</option>
                 </select>
               </div>
@@ -4227,7 +5234,7 @@
               <label class="form-label" for="book-drop">Drop Location / Destination <span>*</span></label>
               <div class="input-icon-wrap">
                 <i class="fa-solid fa-map-pin"></i>
-                <input type="text" id="book-drop" class="form-control" placeholder="e.g. Viman Nagar / Hinjawadi, Pune or Mumbai Airport" required />
+                <input type="text" id="book-drop" class="form-control" placeholder="e.g. Pune, Mumbai, Nashik, Shirdi, Kolhapur, Nagpur, or anywhere in Maharashtra" required />
               </div>
               <div class="error-msg" id="error-drop">Please provide your destination.</div>
             </div>
@@ -4261,13 +5268,18 @@
               </div>
             </div>
 
-            <!-- Submit Button -->
+            <!-- Submit Buttons: WhatsApp + Email -->
             <div class="form-group-full" style="margin-top: 0.8rem;">
-              <button type="submit" class="booking-submit-btn" id="submit-booking-btn">
-                <i class="fa-brands fa-whatsapp"></i> Send Booking Request via WhatsApp
-              </button>
+              <div class="booking-actions-row">
+                <button type="submit" class="booking-submit-btn btn-booking-wa" id="submit-booking-btn">
+                  <i class="fa-brands fa-whatsapp"></i> Book via WhatsApp
+                </button>
+                <button type="button" class="booking-submit-btn btn-booking-mail" id="submit-booking-email-btn" onclick="handleEmailBooking()">
+                  <i class="fa-solid fa-envelope"></i> Book via Gmail
+                </button>
+              </div>
               <p style="text-align: center; color: var(--text-muted); font-size: 0.82rem; margin-top: 0.8rem;">
-                <i class="fa-solid fa-lock"></i> Your information is sent directly to <strong>Shree Renuka Travels (9860271770)</strong> with zero middlemen.
+                <i class="fa-solid fa-lock"></i> Your information is sent directly to <strong>Shree Renuka Travels</strong> — via WhatsApp (9860271770) or Gmail (shreerenukatravels99@shreenukatravels.in) — with zero middlemen.
               </p>
             </div>
 
@@ -4289,11 +5301,22 @@
           <h2 class="section-title">Committed to <span>Safe Highway Travel</span></h2>
           
           <p>
-            Founded in <strong>2019</strong> in Chhatrapati Sambhajinagar, <strong>Shree Renuka Travels</strong> was established with a singular mission: to provide comfortable, punctual, and safe intercity cab travel between Sambhajinagar, Pune, and Mumbai.
+            Founded in <strong>2019</strong> in Chhatrapati Sambhajinagar, <strong>Shree Renuka Travels</strong> was established with a singular mission: to provide comfortable, punctual, and safe intercity cab travel across <strong>all over Maharashtra</strong> — connecting Sambhajinagar to Pune, Mumbai, Nashik, Shirdi, Kolhapur, Nagpur, and every district across the state.
           </p>
           <p>
-            Over the years, we have built a reputation for excellence on Maharashtra's highways. Our fleet of meticulously maintained Sedans (Toyota Etios), Ertigas, Toyota Rumions, and Kia Carens are piloted by polite, background-verified chauffeurs who are trained in defensive driving and night highway safety.
+            Over the years, we have built a reputation for excellence on Maharashtra's highways. Our fleet of meticulously maintained Sedans (Toyota Etios), Ertigas, Toyota Rumions, and Kia Carens are piloted by polite, background-verified chauffeurs who are trained in defensive driving and night highway safety across all state and national highway corridors.
           </p>
+
+          <!-- Official Registered Brand Seal -->
+          <div class="about-brand-seal">
+            <div class="seal-logo-wrap">
+              <img src="logo.png" alt="Shree Renuka Travels Registered Brand Seal" width="68" height="68" />
+            </div>
+            <div class="seal-meta">
+              <h4>Official Brand Emblem</h4>
+              <p>Government Registered Commercial Outstation Taxi &amp; Tour Service &bull; Est. 2019</p>
+            </div>
+          </div>
 
           <!-- Proprietor Highlight -->
           <div class="proprietor-card">
@@ -4405,6 +5428,22 @@
             </div>
           </div>
 
+          <!-- Card 3B: Email Booking & Inquiries -->
+          <div class="contact-card-item">
+            <div class="contact-card-icon" style="background: rgba(217, 119, 6, 0.15); border-color: #D97706; color: #D97706;">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="contact-card-body">
+              <h4>Email Booking & Inquiries</h4>
+              <p>Prefer email or need an official quotation? Send your route & booking details to:</p>
+              <div style="margin-top: 0.5rem;">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shreerenukatravels99@shreenukatravels.in&su=Cab%20Booking%20Inquiry%20-%20Shree%20Renuka%20Travels" target="_blank" rel="noopener noreferrer" class="btn-highway btn-outline" style="padding: 0.45rem 1.1rem; font-size: 0.9rem; border-color: #D97706; color: #D97706; word-break: break-all; display: inline-flex; align-items: center; gap: 0.4rem;">
+                  <i class="fa-solid fa-envelope"></i> shreerenukatravels99@shreenukatravels.in (Gmail)
+                </a>
+              </div>
+            </div>
+          </div>
+
           <!-- Card 4: Operating Hours -->
           <div class="contact-card-item">
             <div class="contact-card-icon">
@@ -4451,8 +5490,8 @@
         <!-- Footer Column 1: Brand & Story -->
         <div class="footer-brand">
           <a href="#home" class="brand-logo">
-            <div class="logo-badge">
-              <i class="fa-solid fa-car-side"></i>
+            <div class="logo-badge" style="width: 54px; height: 54px;">
+              <img src="logo.png" alt="Shree Renuka Travels Official Logo" width="54" height="54" />
             </div>
             <div class="brand-text">
               <span class="brand-name">Shree Renuka <span>Travels</span></span>
@@ -4460,7 +5499,7 @@
             </div>
           </a>
           <p>
-            Your premier choice for intercity taxi travel between Chhatrapati Sambhajinagar, Pune, Mumbai, and all major Maharashtra airports. Experienced drivers, verified fleet, transparent pricing.
+            Your premier choice for intercity taxi travel across all over Maharashtra — connecting Chhatrapati Sambhajinagar with Pune, Mumbai, Nashik, Shirdi, Kolhapur, Nagpur, and all major state airports. Experienced drivers, verified fleet, transparent pricing.
           </p>
           <div class="footer-tagline-quote">
             "Since 2019 – Providing Safe and Secure Journey to Reach Destination"
@@ -4471,10 +5510,11 @@
         <div class="footer-col">
           <h4>Key Services</h4>
           <ul class="footer-links">
+            <li><a href="#booking"><i class="fa-solid fa-chevron-right"></i> All Maharashtra Outstation Cabs</a></li>
             <li><a href="#booking"><i class="fa-solid fa-chevron-right"></i> Sambhajinagar to Pune Cab</a></li>
             <li><a href="#booking"><i class="fa-solid fa-chevron-right"></i> Sambhajinagar to Mumbai Taxi</a></li>
             <li><a href="#booking"><i class="fa-solid fa-chevron-right"></i> One-Way Drop Service</a></li>
-            <li><a href="#booking"><i class="fa-solid fa-chevron-right"></i> Pune & Mumbai Airport Pickup</a></li>
+            <li><a href="#booking"><i class="fa-solid fa-chevron-right"></i> Maharashtra Airport Pickups</a></li>
             <li><a href="#rates"><i class="fa-solid fa-chevron-right"></i> Sedan & Ertiga Per-KM Rates</a></li>
             <li><a href="#estimator"><i class="fa-solid fa-chevron-right"></i> Instant Fare Calculator</a></li>
           </ul>
@@ -4492,6 +5532,9 @@
             </li>
             <li>
               <a href="https://wa.me/919860271770" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp: 9860271770</a>
+            </li>
+            <li>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shreerenukatravels99@shreenukatravels.in" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-envelope"></i> shreerenukatravels99@shreenukatravels.in</a>
             </li>
             <li>
               <span style="display: flex; gap: 0.5rem; color: var(--cream-100);">
@@ -4568,6 +5611,70 @@
     // Set Current Year Dynamically
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
+    // ==========================================================================
+    // DARK / LIGHT THEME TOGGLE SCRIPT
+    // ==========================================================================
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const drawerThemeToggleBtn = document.getElementById('drawer-theme-toggle-btn');
+
+    function updateThemeUI(theme) {
+      const isDark = theme === 'dark';
+      // Icon: Sun for dark mode (click to make light), Moon for light mode (click to make dark)
+      const iconClass = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      const ariaLabel = isDark ? 'Switch to light theme' : 'Switch to dark theme';
+
+      if (themeToggleBtn) {
+        themeToggleBtn.setAttribute('aria-label', ariaLabel);
+        themeToggleBtn.setAttribute('title', ariaLabel);
+        const icon = themeToggleBtn.querySelector('i');
+        if (icon) icon.className = iconClass;
+      }
+
+      if (drawerThemeToggleBtn) {
+        drawerThemeToggleBtn.setAttribute('aria-label', ariaLabel);
+        drawerThemeToggleBtn.setAttribute('title', ariaLabel);
+        const drawerIcon = drawerThemeToggleBtn.querySelector('i');
+        if (drawerIcon) drawerIcon.className = iconClass;
+      }
+    }
+
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      document.documentElement.setAttribute('data-theme', newTheme);
+      document.documentElement.style.colorScheme = newTheme;
+
+      try {
+        localStorage.setItem('theme', newTheme);
+      } catch (err) {
+        console.warn('Unable to persist theme to localStorage:', err);
+      }
+
+      updateThemeUI(newTheme);
+    }
+
+    if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+    if (drawerThemeToggleBtn) drawerThemeToggleBtn.addEventListener('click', toggleTheme);
+
+    // Initial sync of button icon and aria-label
+    const activeTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    updateThemeUI(activeTheme);
+
+    // Listen to system changes if user has not explicitly set a localStorage preference
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        try {
+          if (!localStorage.getItem('theme')) {
+            const systemTheme = e.matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', systemTheme);
+            document.documentElement.style.colorScheme = systemTheme;
+            updateThemeUI(systemTheme);
+          }
+        } catch (err) {}
+      });
+    }
+
     // Default Date to Tomorrow & Set Min Date to Today
     window.addEventListener('DOMContentLoaded', () => {
       const today = new Date();
@@ -4626,16 +5733,15 @@
       link.addEventListener('click', closeMobileDrawer);
     });
 
-    // Sticky Header & Back-to-Top Scroll Behavior
+    // Fixed Header & Back-to-Top Scroll Behavior
     const siteHeader = document.getElementById('site-header');
+    const fixedNavWrapper = document.getElementById('fixed-nav-wrapper');
     const backToTopBtn = document.getElementById('back-to-top-btn');
 
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        siteHeader.classList.add('scrolled');
-      } else {
-        siteHeader.classList.remove('scrolled');
-      }
+      const isScrolled = window.scrollY > 30;
+      if (siteHeader) siteHeader.classList.toggle('scrolled', isScrolled);
+      if (fixedNavWrapper) fixedNavWrapper.classList.toggle('scrolled', isScrolled);
 
       if (window.scrollY > 400) {
         backToTopBtn.classList.add('visible');
@@ -4699,12 +5805,13 @@
       }
     });
 
-    // Route Tab Switcher (Pune vs Mumbai)
+    // Route Tab Switcher (Pune vs Mumbai) - Safe fallback
     function switchRoute(route) {
       const tabPune = document.getElementById('tab-pune');
       const tabMumbai = document.getElementById('tab-mumbai');
       const panePune = document.getElementById('pane-pune');
       const paneMumbai = document.getElementById('pane-mumbai');
+      if (!tabPune || !tabMumbai || !panePune || !paneMumbai) return;
 
       if (route === 'pune') {
         tabPune.classList.add('active');
@@ -4804,6 +5911,9 @@
       else if (preset.value === '350') dropInput.value = 'Mumbai';
       else if (preset.value === '115') dropInput.value = 'Shirdi';
       else if (preset.value === '190') dropInput.value = 'Nashik';
+      else if (preset.value === '310') dropInput.value = 'Solapur';
+      else if (preset.value === '420') dropInput.value = 'Kolhapur';
+      else if (preset.value === '480') dropInput.value = 'Nagpur';
     }
 
     // Form Validation and WhatsApp Redirection
@@ -4941,6 +6051,101 @@
       // Open WhatsApp in new tab
       window.open(waUrl, '_blank');
       return true;
+    }
+
+    // Email Booking Handler — builds a mailto link with the same form data
+    function handleEmailBooking() {
+      // Trigger form validation first
+      const form = document.getElementById('cab-booking-form');
+      if (!form.reportValidity()) return;
+
+      // Re-run our custom validation
+      let isValid = true;
+      const nameInput = document.getElementById('book-name');
+      const errorName = document.getElementById('error-name');
+      if (!nameInput.value.trim()) { nameInput.classList.add('error'); errorName.classList.add('visible'); isValid = false; }
+      else { nameInput.classList.remove('error'); errorName.classList.remove('visible'); }
+
+      const phoneInput = document.getElementById('book-phone');
+      const errorPhone = document.getElementById('error-phone');
+      const phoneRegex = /^[6-9]\d{9}$/;
+      const cleanedPhone = phoneInput.value.trim().replace(/\D/g, '');
+      if (!phoneRegex.test(cleanedPhone)) { phoneInput.classList.add('error'); errorPhone.classList.add('visible'); isValid = false; }
+      else { phoneInput.classList.remove('error'); errorPhone.classList.remove('visible'); }
+
+      const pickupInput = document.getElementById('book-pickup');
+      const errorPickup = document.getElementById('error-pickup');
+      if (!pickupInput.value.trim()) { pickupInput.classList.add('error'); errorPickup.classList.add('visible'); isValid = false; }
+      else { pickupInput.classList.remove('error'); errorPickup.classList.remove('visible'); }
+
+      const dropInput = document.getElementById('book-drop');
+      const errorDrop = document.getElementById('error-drop');
+      if (!dropInput.value.trim()) { dropInput.classList.add('error'); errorDrop.classList.add('visible'); isValid = false; }
+      else { dropInput.classList.remove('error'); errorDrop.classList.remove('visible'); }
+
+      const dateInput = document.getElementById('book-date');
+      const errorDate = document.getElementById('error-date');
+      if (!dateInput.value) { dateInput.classList.add('error'); errorDate.classList.add('visible'); isValid = false; }
+      else { dateInput.classList.remove('error'); errorDate.classList.remove('visible'); }
+
+      const timeInput = document.getElementById('book-time');
+      const errorTime = document.getElementById('error-time');
+      if (!timeInput.value) { timeInput.classList.add('error'); errorTime.classList.add('visible'); isValid = false; }
+      else { timeInput.classList.remove('error'); errorTime.classList.remove('visible'); }
+
+      if (!isValid) {
+        const firstError = document.querySelector('.form-control.error');
+        if (firstError) { firstError.scrollIntoView({ behavior: 'smooth', block: 'center' }); firstError.focus(); }
+        return;
+      }
+
+      // Collect Data
+      const name = nameInput.value.trim();
+      const phone = cleanedPhone;
+      const serviceType = document.getElementById('book-service-type').value;
+      const selectedVehicle = document.querySelector('input[name="vehicle-choice"]:checked')?.value || 'Sedan (Toyota Etios)';
+      const selectedAc = document.querySelector('input[name="ac-choice"]:checked')?.value || 'AC';
+      const pickup = pickupInput.value.trim();
+      const drop = dropInput.value.trim();
+      const rawDate = dateInput.value;
+      let formattedDate = rawDate;
+      if (rawDate) {
+        const parts = rawDate.split('-');
+        if (parts.length === 3) formattedDate = parts[2] + '/' + parts[1] + '/' + parts[0];
+      }
+      const time = timeInput.value;
+      const notes = document.getElementById('book-notes').value.trim();
+
+      // Build Email Subject & Body
+      const subject = 'Cab Booking Request — ' + pickup + ' to ' + drop + ' on ' + formattedDate;
+      let body = 'NEW CAB BOOKING INQUIRY\n';
+      body += 'Agency: Shree Renuka Travels\n';
+      body += '------------------------------------\n';
+      body += 'Customer Name: ' + name + '\n';
+      body += 'Phone Number: ' + phone + '\n';
+      body += 'Service Type: ' + serviceType + '\n';
+      body += 'Vehicle: ' + selectedVehicle + ' (' + selectedAc + ')\n';
+      body += 'Pickup Location: ' + pickup + '\n';
+      body += 'Drop Location: ' + drop + '\n';
+      body += 'Travel Date: ' + formattedDate + '\n';
+      body += 'Pickup Time: ' + time + '\n';
+      if (notes) body += 'Notes/Requests: ' + notes + '\n';
+      body += '------------------------------------\n';
+      body += 'Sent via Shree Renuka Travels Website';
+
+      // Open directly in Gmail compose web view in a new tab so users aren't redirected to Outlook
+      const targetEmail = 'shreerenukatravels99@shreenukatravels.in';
+      const encodedSubject = encodeURIComponent(subject);
+      const encodedBody = encodeURIComponent(body);
+      const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1'
+        + '&to=' + encodeURIComponent(targetEmail)
+        + '&su=' + encodedSubject
+        + '&body=' + encodedBody;
+
+      const newWindow = window.open(gmailUrl, '_blank');
+      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+        window.location.href = gmailUrl;
+      }
     }
   </script>
 </body>
